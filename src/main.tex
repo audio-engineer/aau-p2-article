@@ -1,0 +1,33 @@
+% Preamble
+\documentclass[11pt]{report}
+
+% Packages
+\usepackage[a4paper]{geometry}
+\usepackage[english]{babel}
+\usepackage[indent=20pt]{parskip}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+% textidote: ignore begin
+\graphicspath{ {./images/} }
+
+\hypersetup{pdfborder=0 0 0}
+
+% Document
+\title{P2}
+\author{Group 8}
+
+\begin{document}
+    \maketitle
+
+    % textidote: ignore begin
+    \tableofcontents
+    % textidote: ignore end
+
+    Hello, world~\cite{hello-world}!
+
+
+    \bibliographystyle{IEEEtran}
+    \bibliography{main}
+
+\end{document}
