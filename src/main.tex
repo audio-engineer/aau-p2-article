@@ -9,12 +9,13 @@
 \usepackage[indent=20pt]{parskip}
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{listings}
 
 % textidote: ignore begin
 
 % Bibliography
-\addbibresource{main.bib}
 \addbibresource{problem-analysis/multiplayer.bib}
+\addbibresource{problem-analysis/chess.bib}
 
 % Configuration
 \graphicspath{ {./images/} }
@@ -32,11 +33,15 @@
 
     % textidote: ignore begin
     \tableofcontents
+    \addcontentsline{toc}{chapter}{Bibliography}
+    \addcontentsline{toc}{chapter}{Appendices}
     % textidote: ignore end
 
-    Hello, world~\cite{hello-world}!
-
+    \input{codestyling}
+    \input{introduction/introduction}
     \input{problem-analysis/problem-analysis}
+    \input{problem-statement/problem-statement}
+    \input{appendix/appendix}
 
     \printbibliography
 \end{document}
