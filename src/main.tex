@@ -4,14 +4,24 @@
 % Packages
 \usepackage[a4paper]{geometry}
 \usepackage[english]{babel}
+\usepackage[backend=biber,style=ieee]{biblatex}
+\usepackage{csquotes}
 \usepackage[indent=20pt]{parskip}
 \usepackage{hyperref}
 \usepackage{graphicx}
 
 % textidote: ignore begin
+
+% Bibliography
+\addbibresource{main.bib}
+\addbibresource{problem-analysis/multiplayer.bib}
+
+% Configuration
 \graphicspath{ {./images/} }
 
 \hypersetup{pdfborder=0 0 0}
+
+% textidote: ignore end
 
 % Document
 \title{P2}
@@ -28,7 +38,5 @@
 
     \input{problem-analysis/problem-analysis}
 
-    \bibliographystyle{IEEEtran}
-    \bibliography{main,problem-analysis/multiplayer}
-
+    \printbibliography
 \end{document}
