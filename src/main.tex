@@ -31,19 +31,26 @@
 \author{Group 8}
 
 \begin{document}
+    % Title
     \maketitle
 
+    % Table of Contents
     % textidote: ignore begin
     \tableofcontents
-    \addcontentsline{toc}{chapter}{Bibliography}
-    \addcontentsline{toc}{chapter}{Appendices}
     % textidote: ignore end
 
+    % Main Content
     \input{codestyling}
     \input{introduction/introduction}
     \input{problem-analysis/problem-analysis}
     \input{problem-statement/problem-statement}
-    \input{appendix/appendix}
 
-    \printbibliography
+    % Appendix
+    \appendix
+
+    \input{source-code-repositories/source-code-repositories}
+    \input{process-analysis/process-analysis}
+
+    % Bibliography
+    \printbibliography[heading=bibintoc]
 \end{document}
