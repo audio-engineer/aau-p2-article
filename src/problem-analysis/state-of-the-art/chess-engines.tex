@@ -1,4 +1,108 @@
 % textidote: ignore begin
 \subsection{Chess engines}\label{subsec:chess.engines}
+
+Chess engines are defined by \href{https://www.chess.com}{\verb{Chess.com}} as such:
 % textidote: ignore end
-Hello engines~\cite{alpha-go-zero}.
+\begin{quote}
+    A chess engine is simply a software program that plays and analyzes chess.
+    The word “engine” simply refers to a kind of high-powered program that does a
+    lot of searching and processing similar to a search engine~\cite{chess-com-chess-engines}.
+\end{quote}
+
+So the goal of a chess engine is to understand all the game mechanics and then evaluate a position.
+This evaluation is the most important thing a chess engine should be able to do, but as this is a very abstract
+problem there exists many ways to solve the problem which will be discussed below.
+
+\subsubsection{Conventional/brute force engines}\label{subsubsec:conventional-engines}
+
+A conventional chess engine can be simply described as a brute force approach to solve chess.
+This means that the main limiting factor of how good the engine will be is the computational power of the system.
+Such a chess engine consists of two parts, an evaluation function and a search function.
+Chess is a very complex game without a clear-cut solution, this is because if you wanted to brute force all the possible
+moves that the board could be in you would have to search \( 10^{111} \) different positions, that is more atoms than
+there are in the universe, and with current technology this would be impossible to compute~\cite{atoms}.
+
+To ease this computational burden, chess engines have a value called depth or search depth.
+The depth value can be understood as how deep the engine should look into the future, as going to the end is not
+possible, to give the best move at some current position.
+
+The search function can be further optimized in different ways, but what the optimizations in essence are, are
+clever ways to search for moves that are more likely to be good before others, that will allow you to cut out moves that
+are guaranteed to be worse than the already searched move.
+This can be visualized through a tree structure as seen in~%\ref{fig:chess_pos-tree}.
+
+%\begin{figure}\label{fig:chess_pos-tree}
+
+%\end{figure}
+%TODO input the correct figur.
+
+Evaluation of a chessboard can also be done in a lot of different ways, but that is only relevant in terms of
+implementation.
+What is important to understand for the evaluation is how it is shown.
+In normal chess you always have two players, and to represent the state of the game you would use a single number,
+that is in the range of some arbitrary numbers \( -a : b\).
+This is optimal because it allows a single number to represent the score of two people, where \(-a\) would be
+the best score for black, and \(b\) would be the best score for white.
+This representation is possible because chess is a zero-sum game with perfect information, which means that there is
+at least one optimal way to play for both white and black at any given position~\cite{zero-sum-games}.
+
+% TODO Maybe add some example like explaining mini-max though that could be argued to be in /method/problem solution.
+
+A conventional engine would, given some position then search through all relevant moves to some depth, and then give
+the best move, or a list of ranked moves based on the evaluation of the positions.
+
+\subsubsection{AI engines}\label{subsubsec:ai-engines}
+
+Chess engines that implement neural networks to both search and/or evaluate, which we will call AI engines,
+have been making the news in many kinds of board games.
+This attention comes because that they have not only beaten top conventional engines,
+but that they also show new strategies and creative moves that go against previous strategy.
+
+This creativity comes from how they are built, more specifically how the neural networks are trained, because as opposed
+to humans who learn by playing against other humans that use already conventional strategies, AI engines learn by
+playing against itself many times.
+
+\textbf{This} is the key difference between conventional engines and AI engines, simply put, conventional
+engines are based on the creators' knowledge of the game and the programmers strategies.
+AI engines are self-taught, which means that although it will have to make a lot of errors in strategy at first.
+The engine will not be held back by faulty paradigms, which could hamper the potential of its
+capabilities, this method is also called reinforcement learning~\cite{how-neural-network-engines-work}.
+
+Another difference between conventional engines is that AI engines do not measure the evaluation is not numerical, the
+rating is instead based on the probability of winning, this does not change how it chooses moves as it will still pick
+the best of all the futures it has searched.
+
+\subsubsection{Stockfish}\label{subsubsec:stockfish}
+
+Conventional engines began to get their renown as beyond human capabilities, when the then chess world champion
+Garry Kasparov had multiple matches against IBM's chess engine Deep Blue in both 1996 and
+1997~\cite{Garry-Kasparov-vs-Deep-Blue}.
+The matches played in 1996 ended in a 4--2 win for Kasparov, which was already a shock to the world as the man vs
+machine battle became a more serious topic.
+The man vs machine battle came to a head the next year, when Kasparov lost 3½--2½ against Deep Blue, which meant that
+man was no longer the best.
+This trend has only continued and a much more modern chess engine Stockfish is the result of 16 years of development
+after its initial release in 2008.
+Stockfish started of as a conventional chess engine, but has since 2020 included neural network
+evaluation(NNUE Evaluation) in the source code.
+The introduction of neural networks has brought Stockfish's ELO up in the 3600 range~\cite{Stockfish}.
+This can be compared to the current highest rated chess player Magnus Carlsen, who has a
+rating of 2882~\cite{highest-ELO-chess-player}.
+
+Stockfish is also an open source project which means that everyone has access to it, the engine is also well documented
+which makes Stockfish an obvious choice if one wanted to implement a well build, if not the best chess engine into a
+project.
+% textidote: ignore begin
+\subsubsection{AlphaZero}\label{subsubsec:alphazero}
+% textidote: ignore end
+A groundbreaking example of an AI chess engine would be Deepmind's AlphaZero.
+AlphaZero shocked the world when another variant beat the then 2nd best Go player Lee Sedol in 2015.
+Up until that point Go was thought to be too complicated and the requirement of creative thought seemed too difficult
+to obtain with the lack of human intelligence, but this was proven wrong when AlphaZero's predecessor, AlphaGo,
+won 4--1 against Lee Sedol.
+AlphaZero Continued its fight and beat the Go World Champion.
+This cemented AlphaZero's place above human minds~\cite{alpha-go-zero} in context to the three well known board games:
+Shogi, Chess and Go.
+
+AlphaZero also fought in chess against the best chess engine in 2017 which was Stockfish 8.
+% TODO This section needs some more work.
