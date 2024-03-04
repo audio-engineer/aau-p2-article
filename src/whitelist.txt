@@ -2,3 +2,4 @@ Lichess.org
 Lichess
 Chess.com
 pgn
+ChessGoals
