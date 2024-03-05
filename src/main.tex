@@ -10,6 +10,7 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{subfiles}
 
 % textidote: ignore begin
 
@@ -52,7 +53,7 @@
     \appendix
 
     \input{source-code-repositories/source-code-repositories}
-    \input{process-analysis/process-analysis}
+    \subfile{process-analysis/process-analysis}
 
     % Bibliography
     \printbibliography[heading=bibintoc]
