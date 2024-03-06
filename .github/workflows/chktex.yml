@@ -1,0 +1,8 @@
+name: ChkTeX
+on: push
+jobs:
+  ChkTeX:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: audio-engineer/chktex-action@update-dockerfile
