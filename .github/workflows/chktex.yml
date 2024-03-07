@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: audio-engineer/chktex-action@update-dockerfile
+      - uses: j2kun/chktex-action@v1.0.4
