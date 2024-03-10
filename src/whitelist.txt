@@ -12,3 +12,5 @@ Deepmind
 Carlsen
 NNUE
 Duplessis
+Skoleskak
+AGON
