@@ -6,20 +6,35 @@
 \RequirePackage{lastpage}
 \RequirePackage{xparse}
 
+\ExplSyntaxOn
+\newcommand{\printlist}[1]
+{
+    \begin{enumerate}
+    \clist_map_inline:nn { #1 } { \item ##1 }
+    \end{enumerate}
+}
+\ExplSyntaxOff
+
 \newcommand{\@subtitle}{\relax}
 \newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
+
+\newcommand{\@theme}{\relax}
+\newcommand{\theme}[1]{\renewcommand{\@theme}{#1}}
+
+\newcommand{\@semester}{\relax}
+\newcommand{\semester}[1]{\renewcommand{\@semester}{#1}}
 
 \newcommand{\@department}{\relax}
 \newcommand{\department}[1]{\renewcommand{\@department}{#1}}
 
 \newcommand{\@supervisors}{\relax}
-\newcommand{\supervisors}[1]{\renewcommand{\@supervisors}{#1}}
+\newcommand{\supervisors}[1]{\renewcommand{\@supervisors}{\printlist{#1}}}
 
 \newcommand{\@groupnumber}{\relax}
 \newcommand{\groupnumber}[1]{\renewcommand{\@groupnumber}{#1}}
 
 \newcommand{\@groupmembers}{\relax}
-\newcommand{\groupmembers}[1]{\renewcommand{\@groupmembers}{#1}}
+\newcommand{\groupmembers}[1]{\renewcommand{\@groupmembers}{\printlist{#1}}}
 
 \newcommand{\@abstract}{\relax}
 \renewcommand{\abstract}[1]{\renewcommand{\@abstract}{#1}}
@@ -61,11 +76,11 @@
         \textbf{Title:}\\ #1\bigskip\par
         \textbf{Theme:}\\ #2\bigskip\par
         \textbf{Project Period:}\\ #3\bigskip\par
-        \textbf{Project Group:}\\ #4\bigskip\par
-        \textbf{Participant(s):}\\ \@groupmembers\bigskip\par
-        \textbf{Supervisor(s):}\\ #6\bigskip\par
-        \textbf{Page Numbers:}~\pageref{LastPage}\bigskip\par
-        \textbf{Date of Completion:}\\ #7
+        \textbf{Project Group:}\\ Group #4\bigskip\par
+        \textbf{Participant(s):}#5\bigskip\par
+        \textbf{Supervisor(s):}#6\bigskip\par
+        \textbf{Page Numbers:}\\ #7\bigskip\par
+        \textbf{Date of Completion:}\\ #8
     }
 }
 
@@ -112,36 +127,92 @@
 % Second page
     \pdfbookmark[0]{English title page}{label:titlepage_en}
 
-    \aautitlepage{
+    \aautitlepage{%
         \englishprojectinfo{
             \@title~\@subtitle
-        }{
-            Software Engineering
-        }{
-            Spring Semester 2024
-        }{
-            Group \@groupnumber
-        }{
-            Kristiyan Mariyan Georgiev \\
-            Mads Heilmann \\
-            Martin Kedmenec \\
-            Sebastian Hemmer Bech Mygind \\
-            Simon Woidemann
-        }{
+        }{%
+            \@theme
+        }{%
+            \@semester~Semester 2024
+        }{%
+            \@groupnumber
+        }{%
+            \@groupmembers
+        }{%
             \@supervisors
-        }{
+        }{%
+            \pageref{LastPage}
+        }{%
             \today
-        }
-    }{
-        \textbf{Software} \\
-        Aalborg University \\
+        }%
+    }{%
+        \textbf{\@department}\\
+        Aalborg University\\
         \href{https://www.aau.dk/}{https://www.aau.dk/}
-    }{
+    }{%
         \@abstract
     }
 
     \cleardoublepage
 }
 \makeatother
+
+\newcommand{\makeaaupreface}[1]{
+    \chapter*{Preface}
+    \addcontentsline{Section}{Preface}
+    \raggedright \hfill Aalborg University \today
+
+    \vspace{3em}
+
+    \noindent #1
+
+    \vspace{3cm}
+    \vfill\noindent
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \rule{\textwidth}{0.5pt}\\
+        Name \\
+        {\footnotesize <mail>}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \rule{\textwidth}{0.45pt}\\
+        Name \\
+        {\footnotesize <mail>}
+    \end{minipage}
+    \vspace{3\baselineskip}
+    \begin{center}
+        \begin{minipage}[b]{0.45\textwidth}
+            \centering
+            \rule{\textwidth}{0.45pt}
+            Name \\
+            {\footnotesize <mail>}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[b]{0.45\textwidth}
+            \centering
+            \rule{\textwidth}{0.5pt}
+            Name\\
+            {\footnotesize <mail>}
+        \end{minipage}
+    \end{center}
+    \vspace{3\baselineskip}
+    \begin{center}
+        \begin{minipage}[b]{0.45\textwidth}
+            \centering
+            \rule{\textwidth}{0.45pt}
+            Name \\
+            {\footnotesize <mail>}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[b]{0.45\textwidth}
+            \centering
+            \rule{\textwidth}{0.45pt}
+            Name \\
+            {\footnotesize <mail>}
+        \end{minipage}
+    \end{center}
+}
 % textidote: ignore end
 \endinput
