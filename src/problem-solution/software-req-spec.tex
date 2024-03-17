@@ -4,60 +4,45 @@
 
 To answer to problem statement, an outline of the desired program features is made.
 The method of choice for the requirement specifications is the MoSCoW model~\cite{hudaib2018}.
-The overview of the features the application will and will not entail are provided in the following Subsections
-~\ref{subsec:must-haves},~\ref{subsec:should-haves},~\ref{subsec:could-haves} and~\ref{subsec:wont-haves}.
-
-% textidote: ignore begin
-\subsection{Must-haves (Mo)}\label{subsec:must-haves}
-% textidote: ignore end
-
-\textbf{``Must-haves''} encapsulates all the features that must be
-included in the final product.
+The overview of the features the application will and will not entail are provided in Table~\ref{tab:srs}.
+In the table, the MoSCoW categories have the following meaning:
 
 \begin{itemize}
-    \item Basic chess functionality
-    \item Multiplayer functionality
-    \item Applied learning principles
-    \item Chess engine implementation
+    \item \textbf{``Must-haves''} (Mo) encapsulates all the features that must be
+    included in the final product.
+    \item \textbf{``Should-haves''} (S) encapsulates features that are desired and that we are technically able to
+    implement if not for the time constraints of the project.
+    \item \textbf{``Could-haves''} (Co) encapsulates features that are possible
+    to implement but are not the focus of this report.
+    \item \textbf{``Won't-haves''} (W) encapsulates out of scope features that are not going to be considered nor
+    implemented.
 \end{itemize}
 
 % textidote: ignore begin
-\subsection{Should-haves (S)}\label{subsec:should-haves}
+\begin{table}[h]
+    \centering
+    \resizebox{\columnwidth}{!}{%
+        \begin{tabular}{ccc}
+            \toprule
+            \textbf{Requirement}                     & \textbf{MoSCoW category} & \textbf{Motivation}                                    \\ \midrule
+            Basic chess functionality                & Mo                       & {\ul~\ref{sec:chess}}                                  \\ \midrule
+            Online multiplayer functionality         & Mo                       & {\ul~\ref{sec:multiplayer-analysis}}                   \\ \midrule
+            Applied learning principles              & Mo                       & {\ul~\ref{sec:learning-methods}}                       \\ \midrule
+            Chess engine implementation              & Mo                       & {\ul~\ref{subsec:chess-engines}}                       \\ \midrule
+            User accounts                            & S                        & {\ul~XX}                                               \\ \midrule
+            User registration and authentication     & S                        & {\ul~XX}                                               \\ \midrule
+            Engine feedback in English               & S                        & {\ul~XX}                                               \\ \midrule
+            Chat functionality                       & S                        & {\ul~\ref{subsec:effects-multiplayer-has-on-learning}} \\ \midrule
+            Server listing                           & S                        & {\ul~\ref{sec:multiplayer-analysis}}                   \\ \midrule
+            Analysis tool for post game analysis     & Co                       & {\ul~\ref{subsec:chess-engines}}                       \\ \midrule
+            Chess puzzles                            & Co                       & {\ul~XX}                                               \\ \midrule
+            Achievements                             & Co                       & {\ul~XX}                                               \\ \midrule
+            Board customization                      & Co                       & {\ul~XX}                                               \\ \midrule
+            AI vs AI matches                         & W                        & {\ul~\ref{subsubsec:ai-engines}}                       \\ \midrule
+            Chess variants other than standard chess & W                        & {\ul~\ref{sec:chess}}                                  \\ \midrule
+            AI training and machine learning         & W                        & {\ul~\ref{subsubsec:ai-engines}}                       \\ \bottomrule
+        \end{tabular}%
+    }
+    \caption{Software requirements specification in the MoSCoW model.}\label{tab:srs}
+\end{table}
 % textidote: ignore end
-
-\textbf{``Should-haves''} encapsulates features that are desired and that we are technically able to implement if not
-for the time constraints of the project.
-
-\begin{itemize}
-    \item User accounts
-    \item User registration and authentication
-    \item Engine feedback in English
-    \item Chat functionality
-    \item Server listing
-\end{itemize}
-
-% textidote: ignore begin
-\subsection{Could-haves (Co)}\label{subsec:could-haves}
-% textidote: ignore end
-
-\textbf{``Could-haves''} encapsulates features that are possible
-to implement but are not the focus of this report.
-
-\begin{itemize}
-    \item Analysis tool for post game analysis
-    \item Chess puzzles
-    \item Achievements
-    \item Board customization
-\end{itemize}
-
-% textidote: ignore begin
-\subsection{Won't-haves (W)}\label{subsec:wont-haves}
-% textidote: ignore end
-
-\textbf{``Won't-haves''} encapsulates out of scope features that are not going to be considered or implemented.
-
-\begin{itemize}
-    \item AI vs AI matches
-    \item Chess variants other than standard chess
-    \item AI training and machine learning
-\end{itemize}
