@@ -1,20 +1,27 @@
-name: Compilation
-on: push
+name: Compile Main
+on:
+  push:
+    branches:
+      - main
 jobs:
-  Compilation:
+  compile-main:
+    name: Compile Main
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: xu-cheng/latex-action@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Compile
+        uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
           working_directory: src/
           args: ''
-      - name: Get commit hash
+      - name: Get Commit Hash
         run: echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
       - name: Rename PDF
         run: sudo mv out/main.pdf "out/${{ github.ref_name }}-${{ env.sha_short }}.pdf"
-      - uses: actions/upload-artifact@v4
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
         with:
           name: "${{ github.ref_name }}-${{ env.sha_short }}.pdf"
           path: "out/${{ github.ref_name }}-${{ env.sha_short }}.pdf"
