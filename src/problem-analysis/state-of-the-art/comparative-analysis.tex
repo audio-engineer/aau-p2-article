@@ -4,14 +4,40 @@
 
 To get a better understanding of the differences and similarities of the state of the art, reference is made to Table
 ~\ref{tab:comparative-analysis}.
-In this table it can be observed that over the board (OTB) chess entails the possibility of the players learning from
-each other and play multiplayer chess when offline, hereby potentially making it the best way to learn chess offline,
-whilst being able to play multiplayer and having interactive learning.
-Our solution will not be able to encompass offline users, as it will be an online web application.
+In the table, the explanation of the services are as follows:
+
+\begin{itemize}
+    \item \textbf{\url{Chess.com}}: The chess website as explained in Section~\ref{subsec:chess-com}.
+    \item \textbf{\url{Lichess.com}}: The chess website as explained in Section~\ref{subsec:lichess-org}.
+    \item \textbf{OTB chess}: Short for `over the board chess'.
+    The sport of physical chess, where one is accompanied by a psychical chess board.
+    \item \textbf{Chess Educator}: The service where an actual physical person is accompanying the user, either online
+    or offline, and giving the user feedback and helping vocally by communicating their thoughts about the users moves
+    and the game to the user.
+    \item \textbf{Our solution}: Encapsulates the solution we produce with the functionalities described in
+    Section~\ref{sec:software-requirement-specification}.
+\end{itemize}
+
+Also in the table, the explanation of the features are as follows:
+
+\begin{itemize}
+    \item \textbf{Multiplayer}: The ability to play with another person either online or offline.
+    \item \textbf{Learning}: The ability to achieve strategic knowledge about the game of chess through various learning
+    methods.
+    \item \textbf{Multiplayer learning}: A combination of the two beforehand mentioned features, with the caveat that it
+    can be accomplished simultaneously.
+    \item \textbf{Free to use}: The ability to use the service without it costing the user any money.
+\end{itemize}
+
+In the table it can be observed that OTB chess entails the possibility of the players learning from each other and play
+multiplayer chess when offline, hereby potentially making it the best way to learn chess offline, whilst being able to
+play multiplayer and having interactive learning simultaneously.
+It can also be observed that our solution will not be able to encompass offline users, as it will be an online web
+application.
 However, in the online section it is observed that only chess educators and our solution provides the multiplayer
-learning experience.
-The downside of an educator is that it is not a free to use service, why our solution will be the only solution that
-potentially satisfies all the features discussed in the problem analysis.
+learning experience to the user.
+The downside of knowledgeable educators is that they charge money for their teaching service, why our solution will be
+the only solution that can potentially satisfy all the features in the table.
 In the table is not included all the other services that \url{Lichess.org} and \url{Chess.com} provide, as that is not
 the focus of the report.
 
@@ -36,7 +62,7 @@ the focus of the report.
             \rowcolor[HTML]{EFEFEF}
             \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} \textit{\textbf{Offline}}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Chess.com}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Lichess.com}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{OTB chess}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Chess Educator}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Our solution}} \\ \midrule
             \rowcolor[HTML]{FD6864}
-            \cellcolor[HTML]{EFEFEF}\textbf{Multiplayer}                             & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                        &                                                                    \\ \midrule
+            \cellcolor[HTML]{EFEFEF}\textbf{Multiplayer}                             & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                        &                                                                    \\ \midrule
             \rowcolor[HTML]{67FD9A}
             \cellcolor[HTML]{EFEFEF}\textbf{Learning}                                & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                        & \cellcolor[HTML]{FD6864}                                           \\ \midrule
             \rowcolor[HTML]{FD6864}
@@ -46,6 +72,6 @@ the focus of the report.
         \end{tabular}%
     }
     \caption{Comparative analysis of the services and some features they have.
-    Green indicates that the service encapsulates the feature.}\label{tab:comparative-analysis}
+    A green color indicates that the service encapsulates the feature.}\label{tab:comparative-analysis}
 \end{table}
 % textidote: ignore end
