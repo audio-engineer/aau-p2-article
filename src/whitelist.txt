@@ -27,3 +27,8 @@ Mygind
 Woidemann
 Masegosa
 Leela
+EvaluatePositionRequest
+EvaluatePositionResponse
+AnalyzeMoveRequest
+AnalyzeMoveResponse
+FastAPI

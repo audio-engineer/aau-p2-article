@@ -1,0 +1,92 @@
+% textidote: ignore begin
+\section{Stockfish}\label{sec:stockfish}
+% textidote: ignore end
+
+To accompany the chess engine implementation requirement from the software requirement specification seen in
+Section~\ref{sec:software-requirement-specification}, Stockfish needs to be implemented.
+As Stockfish is a binary program, it is not possible to run it in the browser, why an alternative solution using a
+Google Cloud Run container is used.
+To use Google Cloud Run an image needs to be created.
+Reference is made to our Stockfish image in Appendix A for the repository wherein the source code for the image is
+contained.
+
+Another issue with the Stockfish binary is that it provides a lot of information when its built-in functions are
+executed.
+For our use case, we only need a few specific key data values to later display on the frontend.
+One solution to this problem is to run the binary and pipe all the output information directly to the frontend and
+filter through it in the frontend.
+The advantages of this method is that the developers would be able to keep using TypeScript for the programming of the
+data processing as well as the other frontend elements instead of incorporating other languages and data processing
+methods.
+However, the disadvantages is that this solution uses a lot of bandwidth when communicating the information to the
+frontend, which in turn becomes expensive rather quickly.
+Instead, the container running the image parse the data locally and only post the information to the frontend that is
+requested.
+
+To accomplish this, a Python script has been included in the image containing the Stockfish binary.
+The script uses a FastAPI based web API to interact with the Stockfish binary.
+
+To make sure the user is not waiting for an unnecessarily long time for the analysis of the position and to make sure
+that there is at least some substance in the depth of the analysis, a hard-coded midpoint of depth 8 is set by the
+developers for the Stockfish binary.
+
+The two main functionalities of the script are the functions \texttt{evaluate\_position} and \texttt{analyze\_move}.
+
+\subsection{Stockfish image functions}\label{subsec:stockfish-image-functions}
+
+The position is as before mentioned communicated through a FEN (Forsyth-Edwards Notation) string.
+The FEN string is produced by the frontend and is included in the request for the position evaluation.
+
+% textidote: ignore begin
+\subsubsection{Function: \texttt{evaluate\_position}}\label{subsubsec:function:evaluate_position}
+% textidote: ignore end
+
+This function's main purpose is to evaluate a FEN position.
+The FEN position is then evaluated by Stockfish.
+A snippet of the function can bee seen in Listing~\ref{lst:main.py-evaluate_position}, where the function definition is
+listed.
+
+\begin{lstlisting}[
+    style=pythonStyle,
+    label={lst:main.py-evaluate_position},
+    caption={Definition of function \texttt{evaluate\_position} in \texttt{main.py}},
+    captionpos=b,
+]
+@app.post("/evaluate-position")
+async def evaluate_position(
+    evaluate_position_request: EvaluatePositionRequest,
+) -> DataResponse[EvaluatePositionResponse]:
+\end{lstlisting}
+
+In the definition, it can be seen that the function has a single formal parameter \texttt{evaluate\_position\_request},
+which is of type \texttt{EvaluatePositionRequest}, which encapsulates a FEN string and a time tracking variable.
+It returns an object of type \texttt{EvaluatePositionResponse}, which contains an evaluation of the FEN position,
+statistics regarding whether the game was won, drawn or lost, and a list of the top three recommended moves.
+
+% textidote: ignore begin
+\subsubsection{Function: \texttt{analyze\_move}}\label{subsubsec:function:analyze_move}
+% textidote: ignore end
+
+This function's main purpose is to analyze a single move.
+A snippet of the function can bee seen in Listing~\ref{lst:main.py-analyze_move}, where the function definition is
+listed.
+
+\begin{lstlisting}[
+    style=pythonStyle,
+    label={lst:main.py-analyze_move},
+    caption={Definition of function \texttt{analyze\_move} in \texttt{main.py}},
+    captionpos=b,
+]
+@app.post("/analyze-move")
+async def analyze_move(
+    analyze_move_request: AnalyzeMoveRequest,
+) -> DataResponse[AnalyzeMoveResponse]:
+\end{lstlisting}
+
+As before, in the definition, it can be seen that the function has a single formal parameter
+\texttt{analyze\_move\_request}, which is of type \texttt{AnalyzeMoveRequest}, which encapsulates a FEN string and a
+time tracking variable.
+In addition, it also encapsulates a move string, wherein the move to be analyzed is located.
+It returns an object of type \texttt{AnalyzeMoveResponse}, which contains an evaluation of the FEN position after the
+move is made, whether the move was a capture or not, and the absolute change in evaluation between the pre- and
+post-move FEN positions.
