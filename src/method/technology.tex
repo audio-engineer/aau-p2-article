@@ -1,0 +1,94 @@
+\section{Technology}\label{sec:technology}
+
+Throughout the development of the project, a number of different tools and publicly available packages are used to
+assist the development process.
+These different technologies were chosen based on the team's needs and the requirements of the project.
+The following sections will describe the different technologies used in the project.
+
+\subsection{Programming stack}\label{subsec:programming}
+
+As the project is a web application, TypeScript~\cite{typescript} is used as the main programming language.
+TypeScript is a superset of JavaScript, with the main difference being that TypeScript is statically typed, while
+JavaScript is dynamically typed.
+It can be very useful in larger projects, as it helps to catch errors during compile-time as opposed to run-time.
+This is the first time for many of the team members to use TypeScript, but they find it to be safer than JavaScript
+for larger projects.
+
+The frontend of the project is built with React~\cite{react}, which is a JavaScript / TypeScript library for building
+user interfaces.
+It is developed and maintained by Meta, and is used by many large companies.
+React is focused on mobile applications first and foremost, but the team's focus was on the desktop experience.
+
+% textidote: ignore begin % due to node.js and next.js being identified as an url
+The backend is built using Node.js~\cite{node.js}, which allows the team to build server-side components using
+TypeScript.
+Node.js is a popular choice for backend development, as it is fast and scalable.
+As well as using React for client-side rendering, Next.js~\cite{next.js} is incorporated to handle the server-side
+rendering.
+Next.js is a React framework running on top of Node.js, which assists in building the frontend and backend
+together.
+% textidote: ignore end
+
+Because Stockfish~\cite{stockfish} is written in C++, the team created a REST API using Python to communicate with it.
+Python was chosen, as it already has a wrapper called py-stockfish~\cite{py-stockfish}, which assists in the development
+of the API\@.
+The API has functions that take input from the server, run it through Stockfish, and return the output back to the
+server.
+Unit tests are used to ensure that the API's functions are working correctly.
+
+\subsection{JavaScript libraries}\label{subsec:libraries}
+
+Throughout the project the team uses a number of different libraries to aid with the mundane tasks of web development.
+% textidote: ignore begin % Due to chess.js being identified as an url
+For example, as the focus was on the learning aspect of the project, the team uses Chess.js~\cite{chess.js} to handle
+the chess logic and react-chessboard~\cite{react-chessboard} to display the chessboard.
+% textidote: ignore end
+This saves a lot of time, as chess is a complex game with many rules.
+
+The team also uses Material UI~\cite{mui} (MUI) to style the website, as it is a modern and popular library that
+uses Google's design language, Material Design.
+MUI is used to create the buttons, text fields, and other components that make up the website.
+
+Lastly, the team uses Chatscope~\cite{chatscope} to create the chat window of the website.
+The chat window is an important element of the website, as it allows users to communicate with Stockfish or with each
+other.
+
+\subsection{Hosting provider}\label{subsec:hosting}
+
+There are a number of different hosting providers available.
+Amazon Web Services~\cite{aws} is a popular choice, but it can be expensive.
+Instead, Firebase~\cite{firebase} was chosen due to its features and pricing.
+The main reason for this decision is that Firebase allows for easy authentication with Google accounts, which was
+essential for building the lobby system.
+
+% textidote: ignore begin % Due to socket.io being identified as an url
+Socket.io~\cite{socket.io} was considered for the multiplayer aspect, but it can't be used with Firebase.
+% textidote: ignore end
+However, Firebase provides a real-time database, which was extensively used throughout the project instead.
+The real-time database works like a normal database, but with the added benefit of being able to listen for changes in
+real time and having very little delay between the data being sent and received.
+% textidote: ignore begin % Due to socket.io being identified as an url
+It was used as a replacement for Socket.io, as the latency was low enough for the team's needs.
+% textidote: ignore end
+The database saves game states, chat messages, lobbies and other data.
+
+\subsection{Development environment}\label{subsec:development}
+
+The project requires a number of different services to be running at the same time, which can be difficult to manage.
+% textidote: ignore begin % Due to node.js being identified as an url
+That is the Node.js backend, Stockfish and Firebase Emulator.
+% textidote: ignore end
+To manage them, the team uses Docker~\cite{docker} to simultaneously run all the services.
+Docker is a platform that allows developers to isolate their applications in containers, which are lightweight and can
+run on any machine.
+This makes it painless to develop multiservice projects, as there are no compatibility issues between the different
+devices and services.
+To handle multiple containers, the team uses Docker Compose, which is a tool for defining and running multi-container
+Docker applications.
+
+As the previous project, the team uses GitHub~\cite{github} for version control.
+GitHub provides many features, such as pull requests, issues, and actions, which makes it easy to collaborate and work
+on the project.
+The team made use of GitHub projects to plan out different tasks, issues to track bugs and features, and pull requests
+to review and merge code.
+GitHub Actions were also used to test or compile the program automatically.
