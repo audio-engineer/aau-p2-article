@@ -34,3 +34,7 @@ AnalyzeMoveResponse
 FastAPI
 ChessTeacher
 ChatGPT
+MUI
+Chatscope
+devcontainer
+py-stockfish
