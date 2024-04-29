@@ -1,0 +1,54 @@
+% textidote: ignore begin
+\section{Software requirements evaluation}\label{sec:software-requirements-evaluation}
+% textidote: ignore end
+
+This section refers back to Section~\ref{sec:software-requirement-specification} and more specifically
+Table~\ref{tab:srs}.
+
+% textidote: ignore begin
+\subsection{Must haves}\label{subsec:must-haves}
+% textidote: ignore begin
+
+This section concerns the evaluation of the must-have requirements.
+Most must-have requirements are satisfied in the development of the first release of the ChessTeacher project.
+This entails the basic chess functionality, the online multiplayer functionality and the chess engine implementation.
+They work seamlessly and efficiently and are well integrated into the overall project.
+
+% textidote: ignore begin
+\subsubsection{Applied learning principles}
+% textidote: ignore begin
+
+Though most features are well implemented as mentioned above, there are some missing features.
+The project is missing some key features regarding the learning principles mentioned in
+Section~\ref{sec:learning-methods}.
+Key missing features include explanations and interactivity.
+As chess as a game is complex, there are too many different positions for it to make sense to hard-code responses for
+different positions.
+To reach the full potential of the idea, the project needs some form of dynamic language model that is able to interpret
+the Stockfish provided feedback, process this information and provide tailored feedback to the user.
+This implementation is further discussed in Section~\ref{sec:large-language-model-implementation}.
+These key missing features makes for worse initial feedback by the test subjects as further discussed in
+Section~\ref{sec:results}.
+Even though this is undesired feedback and functionality for the overall potential of a chess learning web
+application, the developers are still satisfied with the result.
+
+% textidote: ignore begin
+\subsection{Should haves}\label{subsec:should-haves}
+% textidote: ignore begin
+
+This section concerns the evaluation of the should-have requirements.
+Once again, most should-have requirements are satisfied in the development of the first release of the ChessTeacher
+project.
+This entails the implementation of user accounts, user registration and authentication, chat functionality and game
+listing.
+As before, these all work efficiently and smoothly, as also supported by the user tests.
+
+% textidote: ignore begin
+\subsubsection{Engine feedback in English}
+% textidote: ignore begin
+
+However, the english feedback from Stockfish is, as per the first release of the project, hard-coded to be a random
+message from a selection of three constructed sentences.
+This is due to the same reasons as mentioned in Section~\ref{subsec:must-haves}.
+Even though the implementation of the english user feedback is suboptimal, it still functions as desired when accounting
+for the time and experience limitations.

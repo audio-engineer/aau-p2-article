@@ -1,0 +1,40 @@
+% textidote: ignore begin
+\section{Large language model implementation}\label{sec:large-language-model-implementation}
+% textidote: ignore end
+
+As mentioned in Section~\ref{subsec:must-haves}, some key features, hereby explanations and interactivity, are not
+implemented in the first release of the ChessTeacher project.
+% textidote: ignore begin % [lt:en:EN_REPEATEDWORDS]
+This makes for an application that in the current state may not suffice to resolve the problem statement.
+There are several reasons for this gap between our solution and a solution that sufficiently satisfies the problem.
+% textidote: ignore end
+
+One reason is, that adding the necessary missing features is rather complex and time-consuming.
+As the project has a strict deadline and as the developers are learning the languages and software whilst making the
+project, time is somewhat limited.
+Prioritizing the features to implement is therefore necessary.
+One could argue that the missing features are more vital to the problem than some not as vital implemented features
+and should therefore be prioritized higher.
+Even though this is true, the reason is that the developers did not have a finished plan for the project at the
+beginning of the project and therefore did not have a completed prioritized feature list as a baseline.
+Throughout the development process, features are added and removed as the developers' knowledge-base around the topic of
+the project improves and grows.
+It is therefore difficult to start from a completed features list.
+Another argument is that the developers are implementing features chronologically, why some less important features are
+implemented before features that has a higher priority.
+This approach may not be the most effective in the long term, however, it provides a simpler way to better visualize the
+overall progress.
+
+Another reason is, that the developers do not have the experience yet to know how to effectively implement the features.
+Even though the process of implementing the core of LLM's is not too complicated, there are a lot of pitfalls that on
+the contrary are complicated and are not worth the risk to potentially encounter and having to solve.
+An example of a pitfall is that LLM API's most often have a price tag, and often a rather steep one.
+It is not straightforward how do deal with limiting the amount of requests made to an LLM API and how to avoid other
+common pitfalls, as the developer team is rather new to the field of software engineering and web development
+especially.
+The potential consequences of overlooked flaws in the code resulting in overdraft or other financial pitfalls is
+determined to be too great for it to be worth implementing in the first release of the program.
+
+Therefore, due to the reasons mentioned above LLM implementation is ultimately excluded.
+One potential future solution to implement these missing features could be to implement them using proprietary software
+such as ChatGPT to generate the feedback based on the Stockfish evaluation.
