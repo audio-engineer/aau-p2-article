@@ -32,3 +32,5 @@ EvaluatePositionResponse
 AnalyzeMoveRequest
 AnalyzeMoveResponse
 FastAPI
+ChessTeacher
+ChatGPT
