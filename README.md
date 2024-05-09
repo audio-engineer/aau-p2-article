@@ -17,8 +17,16 @@ chktex -q -l .chktexrc src/main.tex
 
 #### TeXtidote
 
+Report:
+
 ```shell
 textidote src/main.tex
+```
+
+Process analysis:
+
+```shell
+textidote src/process-analysis/process-analysis.tex
 ```
 
 ### Compilation
