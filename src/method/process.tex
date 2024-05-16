@@ -1,0 +1,24 @@
+% textidote: ignore begin
+\section{Development process}\label{sec:development-process}
+% textidote: ignore end
+
+\subsection{Development environment}\label{subsec:development}
+
+The project requires a number of different services to be running at the same time, which can be difficult to manage.
+% textidote: ignore begin % Due to node.js being identified as an url
+That is the Node.js backend, Stockfish and Firebase Emulator.
+% textidote: ignore end
+To manage them, the team uses Docker~\cite{docker} to simultaneously run all the services.
+Docker is a platform that allows developers to isolate their applications in containers, which are lightweight and can
+run on any machine.
+This makes it painless to develop multiservice projects, as there are no compatibility issues between the different
+devices and services.
+To handle multiple containers, the team uses Docker Compose, which is a tool for defining and running multi-container
+Docker applications.
+
+As the previous project, the team uses GitHub~\cite{github} for version control.
+GitHub provides many features, such as pull requests, issues, and actions, which makes it easy to collaborate and work
+on the project.
+The team made use of GitHub projects to plan out different tasks, issues to track bugs and features, and pull requests
+to review and merge code.
+GitHub Actions were also used to test or compile the program automatically.
