@@ -14,10 +14,11 @@ It can be very useful in larger projects, as it helps to catch errors during com
 This is the first time for many of the team members to use TypeScript, but they find it to be safer than JavaScript
 for larger projects.
 
-The frontend of the project is built with React~\cite{react}, which is a JavaScript / TypeScript library for building
+The frontend of the project is built with React~\cite{react}, which is a JavaScript/TypeScript library for building
 user interfaces.
 It is developed and maintained by Meta, and is used by many large companies.
-React is focused on mobile applications first and foremost, but the team's focus was on the desktop experience.
+React is focused on mobile applications first and foremost, however it is also useful for desktop applications, why it
+is chosen as the top level UI library.
 
 % textidote: ignore begin % due to node.js and next.js being identified as an url
 The backend is built using Node.js~\cite{node.js}, which allows the team to build server-side components using
@@ -28,13 +29,6 @@ rendering.
 Next.js is a React framework running on top of Node.js, which assists in building the frontend and backend
 together.
 % textidote: ignore end
-
-Because Stockfish~\cite{stockfish} is written in C++, the team created a REST API using Python to communicate with it.
-Python was chosen, as it already has a wrapper called py-stockfish~\cite{py-stockfish}, which assists in the development
-of the API\@.
-The API has functions that take input from the server, run it through Stockfish, and return the output back to the
-server.
-Unit tests are used to ensure that the API's functions are working correctly.
 
 \subsection{JavaScript libraries}\label{subsec:libraries}
 
@@ -53,11 +47,13 @@ Lastly, the team uses Chatscope~\cite{chatscope} to create the chat window of th
 The chat window is an important element of the website, as it allows users to communicate with Stockfish or with each
 other.
 
+% textidote: ignore begin
 \subsection{Hosting provider}\label{subsec:hosting}
+% textidote: ignore end
 
 There are a number of different hosting providers available.
 Amazon Web Services~\cite{aws} is a popular choice, but it can be expensive.
-Instead, Firebase~\cite{firebase} was chosen due to its features and pricing.
+Instead, Firebase~\cite{firebase} is chosen due to its features and pricing.
 The main reason for this decision is that Firebase allows for easy authentication with Google accounts, which was
 essential for building the lobby system.
 
@@ -71,24 +67,3 @@ real time and having very little delay between the data being sent and received.
 It was used as a replacement for Socket.io, as the latency was low enough for the team's needs.
 % textidote: ignore end
 The database saves game states, chat messages, lobbies and other data.
-
-\subsection{Development environment}\label{subsec:development}
-
-The project requires a number of different services to be running at the same time, which can be difficult to manage.
-% textidote: ignore begin % Due to node.js being identified as an url
-That is the Node.js backend, Stockfish and Firebase Emulator.
-% textidote: ignore end
-To manage them, the team uses Docker~\cite{docker} to simultaneously run all the services.
-Docker is a platform that allows developers to isolate their applications in containers, which are lightweight and can
-run on any machine.
-This makes it painless to develop multiservice projects, as there are no compatibility issues between the different
-devices and services.
-To handle multiple containers, the team uses Docker Compose, which is a tool for defining and running multi-container
-Docker applications.
-
-As the previous project, the team uses GitHub~\cite{github} for version control.
-GitHub provides many features, such as pull requests, issues, and actions, which makes it easy to collaborate and work
-on the project.
-The team made use of GitHub projects to plan out different tasks, issues to track bugs and features, and pull requests
-to review and merge code.
-GitHub Actions were also used to test or compile the program automatically.
