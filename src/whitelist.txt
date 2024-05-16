@@ -39,3 +39,5 @@ Chatscope
 devcontainer
 py-stockfish
 Ronja
+Laissez
+faire
