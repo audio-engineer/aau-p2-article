@@ -2,8 +2,8 @@
 \subsection{Comparative analysis}\label{subsec:comparative-analysis}
 % textidote: ignore end
 
-To get a better understanding of the differences and similarities of the state of the art, reference is made to Table
-~\ref{tab:comparative-analysis}.
+To get a better understanding of the differences and similarities of the state of the art, reference is made to
+Table~\ref{tab:comparative-analysis}.
 In the table, the explanation of the services are as follows:
 
 \begin{itemize}
@@ -14,7 +14,9 @@ In the table, the explanation of the services are as follows:
     \item \textbf{Chess Educator}: The service where an actual physical person is accompanying the user, either online
     or offline, and giving the user feedback and helping vocally by communicating their thoughts about the users moves
     and the game to the user.
-    \item \textbf{Our solution}: Encapsulates the solution we produce with the functionalities described in
+    \item \textbf{Chess engine}: The existence of an integrated chess engine as they are described in
+    Section~\ref{subsec:chess-engines}.
+    \item \textbf{Market gap}: Encapsulates the solution we produce with the functionalities described in
     Section~\ref{sec:software-requirement-specification}.
 \end{itemize}
 
@@ -30,13 +32,13 @@ Also in the table, the explanation of the features are as follows:
 \end{itemize}
 
 In the table it can be observed that OTB chess entails the possibility of the players learning from each other and play
-multiplayer chess when offline, hereby potentially making it the best way to learn chess offline, whilst being able to
-play multiplayer and having interactive learning simultaneously.
-It can also be observed that our solution will not be able to encompass offline users, as it will be an online web
+multiplayer chess when offline, hereby potentially making it one of the best ways to learn chess offline, whilst being
+able to play multiplayer and having interactive learning simultaneously.
+It can also be observed that the market gap will not be able to encompass offline users, as it will be an online web
 application.
-However, in the online section it is observed that only chess educators and our solution provides the multiplayer
+However, in the online section it is observed that only chess educators and the market gap provides the multiplayer
 learning experience to the user.
-The downside of knowledgeable educators is that they charge money for their teaching service, why our solution will be
+The downside of knowledgeable educators is that they charge money for their teaching service, why the market gap will be
 the only solution that can potentially satisfy all the features in the table.
 In the table is not included all the other services that \url{Lichess.org} and \url{Chess.com} provide, as that is not
 the focus of the report.
@@ -48,9 +50,9 @@ the focus of the report.
         \begin{tabular}{clllll}
             \toprule
             \rowcolor[HTML]{9B9B9B}
-            \textbf{Features}                                                        & \multicolumn{5}{c}{\cellcolor[HTML]{9B9B9B}\textbf{Services}}                                                                                                                                                                                                                                                                                    \\ \midrule
+            \textbf{Features}                                                        & \multicolumn{5}{c}{\cellcolor[HTML]{9B9B9B}\textbf{Services}}                                                                                                                                                                                                                                                                                 \\ \midrule
             \rowcolor[HTML]{EFEFEF}
-            \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} \textit{\textbf{Online}}}  & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Chess.com}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Lichess.com}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{OTB chess}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Chess Educator}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Our solution}} \\ \midrule
+            \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} \textit{\textbf{Online}}}  & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Chess.com}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Lichess.com}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{OTB chess}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Chess Educator}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Market gap}}    \\ \midrule
             \rowcolor[HTML]{67FD9A}
             \cellcolor[HTML]{EFEFEF}\textbf{Multiplayer}                             & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                        &                                                                    \\ \midrule
             \rowcolor[HTML]{67FD9A}
@@ -58,21 +60,25 @@ the focus of the report.
             \rowcolor[HTML]{FD6864}
             \cellcolor[HTML]{EFEFEF}\textbf{Multiplayer learning}                    & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                        & \cellcolor[HTML]{67FD9A}                                           \\ \midrule
             \rowcolor[HTML]{67FD9A}
-            \cellcolor[HTML]{EFEFEF}\textbf{Free to use}                           & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                        &                                                                    \\ \midrule
+            \cellcolor[HTML]{EFEFEF}\textbf{Chess engine}                            & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                        &                                                                    \\ \midrule
+            \rowcolor[HTML]{67FD9A}
+            \cellcolor[HTML]{EFEFEF}\textbf{Free to use}                             & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                        &                                                                    \\ \midrule
             \rowcolor[HTML]{EFEFEF}
-            \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} \textit{\textbf{Local}}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Chess.com}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Lichess.com}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{OTB chess}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Chess Educator}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Our solution}} \\ \midrule
+            \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} \textit{\textbf{Local}}}   & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Chess.com}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Lichess.com}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{OTB chess}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Chess Educator}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Market gap}}    \\ \midrule
             \rowcolor[HTML]{FD6864}
             \cellcolor[HTML]{EFEFEF}\textbf{Multiplayer}                             & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                        &                                                                    \\ \midrule
             \rowcolor[HTML]{67FD9A}
             \cellcolor[HTML]{EFEFEF}\textbf{Learning}                                & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                        & \cellcolor[HTML]{FD6864}                                           \\ \midrule
             \rowcolor[HTML]{FD6864}
             \cellcolor[HTML]{EFEFEF}\textbf{Multiplayer learning}                    & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                        &                                                                    \\ \midrule
+            \rowcolor[HTML]{FD6864}
+            \cellcolor[HTML]{EFEFEF}\textbf{Chess engine}                            & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                        &                                                                    \\ \midrule
             \rowcolor[HTML]{67FD9A}
-            \cellcolor[HTML]{EFEFEF}\textbf{Free to use}                           & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                        &                                                                    \\ \bottomrule
+            \cellcolor[HTML]{EFEFEF}\textbf{Free to use}                             & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                     & \multicolumn{1}{l}{\cellcolor[HTML]{67FD9A}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FD6864}}                        &                                                                    \\ \bottomrule
         \end{tabular}%
     }
     \caption{Comparative analysis of the services and some features they have.
     A green color indicates that the service encapsulates the feature.
-    A red color indicates that the service does not encapsulates the feature}\label{tab:comparative-analysis}
+    A red color indicates that the service does not encapsulates the feature.}\label{tab:comparative-analysis}
 \end{table}
 % textidote: ignore end

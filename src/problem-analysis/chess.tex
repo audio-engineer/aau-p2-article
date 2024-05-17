@@ -10,7 +10,7 @@ western chess, which is also the standard that FIDE, the international chess gov
 
 Most people are familiar with chess, hereby the rules of the game and the look of the board.
 We will therefore only mention a few key elements of chess and online chess, which are not as common knowledge and will
-be important for the final product.
+be important for understanding the technicalities of chess.
 
 \subsection{Notation}\label{subsec:notation}
 
@@ -42,14 +42,19 @@ Only one game is stored per file~\cite{chess.com2024}.
 % textidote: ignore end
 
 Another important aspect of the game of chess is the more complicated rules.
-Below we will mention a few of the important more scarcely known rules:
+These are desirable to implement into any chess game.
+Below a few of the important more scarcely known rules are mentioned:
 
 \begin{itemize}
     \item \textbf{Time control}: Different tournaments and types of games have different time control rules, such as
     rewarding time after every move.
-    Another example is the game type Armageddon, where black and white have different starting times on the clock~\cite{schiller2012}.
+    Another example is the game type Armageddon, where black and white have different starting times on the
+    clock~\cite{schiller2012}.
     \item \textbf{Draw}: Drawing or tying in chess can happen in different ways.
     Examples include stalemate, the 50 move rule and repetition~\cite{schiller2012}.
     \item \textbf{En passant}: A pawn can capture another pawn, if the second mentioned pawn was moved by a double move
     to either adjacent side of the first mentioned pawn~\cite{schiller2012}.
 \end{itemize}
+
+These rules as well as all other rules will need to be implemented into any chess game for it to have the same features
+as standard over-the-board chess.
