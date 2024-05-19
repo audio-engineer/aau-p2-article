@@ -48,22 +48,38 @@ The chat window is an important element of the website, as it allows users to co
 other.
 
 % textidote: ignore begin
-\subsection{Hosting provider}\label{subsec:hosting}
+
+\subsection{Hosting}\label{subsec:hosting}
 % textidote: ignore end
 
-There are a number of different hosting providers available.
-Amazon Web Services~\cite{aws} is a popular choice, but it can be expensive.
-Instead, Firebase~\cite{firebase} is chosen due to its features and pricing.
-The main reason for this decision is that Firebase allows for easy authentication with Google accounts, which was
-essential for building the lobby system.
+Since chess, as previously discussed, is inherently a multiplayer game,
+infrastructure is required that accommodates this requirement.
+More specifically, online multiplayer games, as the name implies, require some kind of network connection between the
+players, which is usually facilitated by the internet.
+Therefore, it was obvious that the solution web application would have to be hosted on the internet.
+To complicate issues further, it was determined that the web application would have to consist of multiple separate and
+independent components, that would all have to be hosted online and communicate with each other over the internet.
+Those components include: The front end application, the authentication and match databases, and the Stockfish-powered
+processing and analysis application.
 
-% textidote: ignore begin % Due to socket.io being identified as an url
-Socket.io~\cite{socket.io} was considered for the multiplayer aspect, but it can't be used with Firebase.
-% textidote: ignore end
-However, Firebase provides a real-time database, which was extensively used throughout the project instead.
-The real-time database works like a normal database, but with the added benefit of being able to listen for changes in
-real time and having very little delay between the data being sent and received.
-% textidote: ignore begin % Due to socket.io being identified as an url
-It was used as a replacement for Socket.io, as the latency was low enough for the team's needs.
-% textidote: ignore end
-The database saves game states, chat messages, lobbies and other data.
+There are a number of different hosting providers available that were considered for the front end application.
+Amazon Web Services~\cite{aws} is a popular choice, but can be expensive and requires a large time investment.
+Instead, Vercel~\cite{vercel} was chosen due to its features, convenience and low pricing.
+Furthermore, Vercel is also the vendor that makes \url{Next.js}, the front end framework that was selected,
+so it was also convenient to pick a hosting provider that features out-of-the-box support for the framework in use.
+
+As for the authentication and database, Firebase~\cite{firebase} was considered and eventually settled on.
+The main reason for this decision is that Firebase allows for easy authentication using Google accounts, which was
+convenient to use and essential for building the multiplayer system that requires some form of authentication,
+i.e., unique player identities.
+Additionally, Firebase features a real time database service, which is a NoSQL database and WebSocket server in one.
+Such a service is a crucial building stone for a real time multiplayer application like our proposed solution, because
+it facilitates real time exchange of state and other data between the client front end applications.
+To conclude, Firebase was chosen because it provides a lot of the features that are required to create an application
+like the solution in question.
+
+And lastly, the Stockfish service needed to be hosted as well, but its design came with a whole new set of challenges.
+Stockfish, being a C++ application, can't easily be hosted on the internet.
+An intermediate REST API was therefore written and containerized, to prepare Stockfish for deployment.
+For the final containerized Stockfish application, Google Cloud Run~\cite{google-cloud-run} was decided on as the
+hosting provider, since it features easy and relatively cheap deployment of container applications.
