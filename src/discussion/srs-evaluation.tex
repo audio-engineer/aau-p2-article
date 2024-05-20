@@ -6,7 +6,8 @@ This section refers back to Section~\ref{sec:software-requirement-specification}
 Table~\ref{tab:srs}.
 
 % textidote: ignore begin
-\subsection{Must haves}\label{subsec:must-haves}
+
+\subsection{Must-haves}\label{subsec:must-haves}
 % textidote: ignore begin
 
 This section concerns the evaluation of the must-have requirements.
@@ -15,6 +16,7 @@ This entails the basic chess functionality, the online multiplayer functionality
 They work seamlessly and efficiently and are well integrated into the overall project.
 
 % textidote: ignore begin
+
 \subsubsection{Applied learning principles}
 % textidote: ignore begin
 
@@ -27,25 +29,28 @@ different positions.
 To reach the full potential of the idea, the project needs some form of dynamic language model that is able to interpret
 the Stockfish provided feedback, process this information and provide tailored feedback to the user.
 This implementation is further discussed in Section~\ref{sec:large-language-model-implementation}.
-These key missing features makes for worse initial feedback by the test subjects as further discussed in
+These key missing features make for worse initial feedback by the test subjects as further discussed in
 Section~\ref{sec:results}.
 Even though this is undesired feedback and functionality for the overall potential of a chess learning web
 application, the developers are still satisfied with the result.
 
 % textidote: ignore begin
+
 \subsubsection{Complex chess rules}
 % textidote: ignore begin
 
-Another feature that has not been included is the time control rule of chess, as mentioned in
-Section~\ref{subsec:rules}.
+Another feature that has not been included is the time control rule of chess.
+Chess is usually played with time restrictions, no matter which variant of chess is in question, i.e.\ international,
+blitz, rapid, bullet, etc.
 Even though time control is a vital game mechanic in chess both competitively and on an amateur level it has not been
 implemented, as the purpose of the web application is to learn chess rather than to play chess.
 Individuals may dislike a timer counting them down whilst trying to learn chess, which is an argument for not
 implementing the feature.
-However, it is also important to learn where and when in the game to spend one's time thinking, why one could argue that
+However, it is also important to learn where and when in the game to spend one's time thinking; why one could argue that
 it should have been implemented to support learning of time management in chess.
 
 % textidote: ignore begin
+
 \subsection{Should haves}\label{subsec:should-haves}
 % textidote: ignore begin
 
@@ -54,9 +59,11 @@ Once again, most should-have requirements are satisfied in the development of th
 project.
 This entails the implementation of user accounts, user registration and authentication, chat functionality and game
 listing.
-As before, these all work efficiently and smoothly, as also supported by the user tests.
+As the previous requirements, the mentioned factors all work efficiently and smoothly,
+as also supported by the usability tests.
 
 % textidote: ignore begin
+
 \subsubsection{Engine feedback in English}
 % textidote: ignore begin
 
@@ -66,7 +73,7 @@ This is due to the same reasons as mentioned in Section~\ref{subsec:must-haves}.
 Even though the implementation of the english user feedback is suboptimal, it still functions as desired when accounting
 for the time and experience limitations.
 
-Another implementation that is not prioritized due to time constraints is the front-end implementation of the
-´analyze\_move' function mentioned in Section~\ref{subsec:stockfish-image-functions}.
+Another implementation not prioritized due to time constraints is the front-end implementation of the
+\verb|analyze_move| function mentioned in Section~\ref{subsec:stockfish-image-functions}.
 Implementing the functionality would serve even more feedback to the user about their move.
 This can help them improve and learn as mentioned in Section~\ref{subsec:assisted-learning}.
