@@ -1,5 +1,5 @@
 % textidote: ignore begin
-\subsection{Chess engines}\label{subsec:chess-engines}
+\section{Chess engines}\label{sec:chess-engines}
 % textidote: ignore end
 
 Chess engines are defined by \url{Chess.com} as such:
@@ -14,7 +14,9 @@ So the goal of a chess engine is to understand all the game mechanics and then e
 This evaluation is the most important thing a chess engine should be able to do, but as this is a very abstract
 problem there exists many ways to solve the problem which will be discussed below.
 
-\subsubsection{Conventional/brute force engines}\label{subsubsec:conventional-engines}
+\input{problem-analysis/engines-and-webapps}
+
+\subsection{Conventional/brute force engines}\label{subsec:conventional-engines}
 
 A conventional chess engine can be simply described as a brute force approach to solve chess.
 This means that the main limiting factor of how good the engine will be is the computational power of the system.
@@ -49,7 +51,7 @@ at least one optimal way to play for both white and black at any given position~
 A conventional engine would, given some position then search through all relevant moves to some depth, and then give
 the best move, or a list of ranked moves based on the evaluation of the positions.
 
-\subsubsection{AI engines}\label{subsubsec:ai-engines}
+\subsection{AI engines}\label{subsec:ai-engines}
 
 Chess engines that implement neural networks to both search and/or evaluate, which we will call AI engines,
 have been making the news in many kinds of board games.
@@ -70,7 +72,7 @@ Another difference between conventional engines is that AI engines do not measur
 rating is instead based on the probability of winning, this does not change how it chooses moves as it will still pick
 the best of all the futures it has searched.
 
-\subsubsection{Stockfish}\label{subsubsec:stockfish}
+\subsection{Stockfish}\label{subsec:stockfish}
 
 Conventional engines began to get their renown as beyond human capabilities, when the then chess world champion
 Garry Kasparov had multiple matches against IBM's chess engine Deep Blue in both 1996 and
@@ -92,7 +94,7 @@ which makes Stockfish an obvious choice if one wanted to implement a well build,
 project.
 
 % textidote: ignore begin
-\subsubsection{AlphaZero}\label{subsubsec:alphazero}
+\subsection{AlphaZero}\label{subsec:alphazero}
 % textidote: ignore end
 
 The most relevant example of an AI chess engine comes from Google Deepmind's Alpha Zero.
@@ -108,7 +110,7 @@ Go player Lee Sedol, who was the 2nd highest ranked Go player in the world.
 AlphaGo won 4--1 against Lee Sedol~\cite{alpha-go-zero}, but AlphaGo was not only made to play Go, another more powerful
 version was in the works.
 
-As mentioned in Section~\ref{subsubsec:stockfish}, Stockfish was before 2017 thought to be the strongest chess engine,
+As mentioned in Section~\ref{subsec:stockfish}, Stockfish was before 2017 thought to be the strongest chess engine,
 and as of 2024 now is again, but when AlphaZero played against the Stockfish engine in 2017, although shocking for the
 chess community AlphaZero beat Stockfish with a convincing lead.
 This result showed that conventional engines were not the end of the road for playing chess.
