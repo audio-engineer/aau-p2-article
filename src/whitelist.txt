@@ -44,3 +44,7 @@ faire
 FASTAPI
 TestClient
 pagebreak
+Stockfish-powered
+Vercel
+WebSocket
+LLMs
