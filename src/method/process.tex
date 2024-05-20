@@ -7,6 +7,7 @@ Other development processes and protocols exist in the team, however only the mo
 following sections.
 
 % textidote: ignore begin
+
 \subsection{Development environment}\label{subsec:development-environment}
 % textidote: ignore end
 
@@ -25,6 +26,7 @@ This makes it possible to run all the services locally when developing, simulati
 environment.
 
 % textidote: ignore begin
+
 \subsection{CI/CD}\label{subsec:ci/cd}
 % textidote: ignore end
 
@@ -64,6 +66,7 @@ comprehensible overview of how much work needs to be done, how much is in progre
 % textidote: ignore end
 
 % textidote: ignore begin
+
 \subsubsection{Automation}
 % textidote: ignore end
 
@@ -85,16 +88,48 @@ In the table is also provided the main purpose of the action and a small descrip
         \begin{tabular}{clllll}
             \toprule
             \rowcolor[HTML]{9B9B9B}
-            \textbf{Actions}                                                           & \multicolumn{2}{c}{\cellcolor[HTML]{9B9B9B}\textbf{Attributes}}                                                                                                                                                                                                 \\ \midrule
+            \textbf{Actions} & \multicolumn{2}{c}{\cellcolor[HTML]{9B9B9B}\textbf{Attributes}} \\ \midrule
             \rowcolor[HTML]{EFEFEF}
-            \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} \textit{\textbf{Report}}}    & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Purpose}}  & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Description}}                                                                                                                                \\ \midrule
-            \cellcolor[HTML]{EFEFEF}\textbf{xu-cheng's latex-action}                   & \begin{tabular}[c]{l}Compiles the latex document\end{tabular} & \multicolumn{1}{l}{\begin{tabular}[c]{l}This action is made by a private person and runs \\ a docker container with TexLive installed \end{tabular}}                                            \\ \midrule
-            \cellcolor[HTML]{EFEFEF}\textbf{TeXtidote}                                 & \begin{tabular}[c]{l}Lints the latex document\end{tabular} & \multicolumn{1}{l}{\begin{tabular}[c]{l}This action utilizes the TeXtidote binary to lint \\ the report for any spelling mistakes \end{tabular}}                                                   \\ \midrule
-            \cellcolor[HTML]{EFEFEF}\textbf{Chk TeX}                                   & \begin{tabular}[c]{l}Formats the latex document\end{tabular} & \multicolumn{1}{l}{\begin{tabular}[c]{l}This action makes use of Chk TeX, which cheks for \\ common mistakes in latex\. We mostly use it to \\ format tables and images correctly \end{tabular}} \\ \midrule
+            \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} \textit{\textbf{Report}}}    &
+            \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Purpose}}  &
+            \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Description}}
+            \\ \midrule
+            \cellcolor[HTML]{EFEFEF}\textbf{xu-cheng's latex-action}                   & \begin{tabular}[c]{l}
+                                                                                             Compiles the latex document
+            \end{tabular} & \multicolumn{1}{l}{\begin{tabular}[c]{l}
+                                                   This action is made by a private person and runs \\
+                                                   a docker container with TexLive installed
+            \end{tabular}}                                 \\ \midrule
+            \cellcolor[HTML]{EFEFEF}\textbf{TeXtidote}                                   & \begin{tabular}[c]{l}
+                                                                                               Lints the latex document
+            \end{tabular} & \multicolumn{1}{l}{\begin{tabular}[c]{l}
+                                                   This action utilizes the TeXtidote binary to lint \\
+                                                   the report for any spelling mistakes
+            \end{tabular}} \\ \midrule
+            \cellcolor[HTML]{EFEFEF}\textbf{Chk TeX}                                    & \begin{tabular}[c]{l}
+                                                                                              Formats the latex document
+            \end{tabular} & \multicolumn{1}{l}{\begin{tabular}[c]{l}
+                                                   This action makes use of Chk TeX, which cheks for \\
+                                                   common mistakes in latex\. We mostly use it to \\
+                                                   format tables and images correctly
+            \end{tabular}}                                  \\ \midrule
             \rowcolor[HTML]{EFEFEF}
-            \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} \textit{\textbf{Front-end}}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Purpose}} & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Description}}                                                                                                                                 \\ \midrule
-            \cellcolor[HTML]{EFEFEF}\textbf{ESLint}                                    & \begin{tabular}[c]{l}Lints the software\end{tabular} & \multicolumn{1}{l}{\begin{tabular}[c]{l}ESLint is used mostly for the best practise \\ comments it provides, such that the group follows \\ the same guidelines when coding \end{tabular}}               \\ \midrule
-            \cellcolor[HTML]{EFEFEF}\textbf{Prettier}                                  & \begin{tabular}[c]{l}Formats the software\end{tabular} & \multicolumn{1}{l}{\begin{tabular}[c]{l}Prettier makes sure that the code is indented \\ correctly among other formatting settings \end{tabular}}                                                      \\ \bottomrule
+            \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} \textit{\textbf{Front-end}}}
+            & \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Purpose}}        &
+            \multicolumn{1}{c}{\cellcolor[HTML]{EFEFEF}\textbf{Description}}     \\ \midrule
+            \cellcolor[HTML]{EFEFEF}\textbf{ESLint}                                  & \begin{tabular}[c]{l}
+                                                                                           Lints the software
+            \end{tabular}        & \multicolumn{1}{l}{\begin{tabular}[c]{l}
+                                                          ESLint is used mostly for the best practise \\
+                                                          comments it provides, such that the group follows \\
+                                                          the same guidelines when coding
+            \end{tabular}}                                  \\ \midrule
+            \cellcolor[HTML]{EFEFEF}\textbf{Prettier}                                  & \begin{tabular}[c]{l}
+                                                                                             Formats the software
+            \end{tabular}        & \multicolumn{1}{l}{\begin{tabular}[c]{l}
+                                                          Prettier makes sure that the code is indented \\
+                                                          correctly among other formatting settings
+            \end{tabular}}                                  \\ \bottomrule
         \end{tabular}%
     }
     \caption{Overview of the most used actions for the report and the software.}\label{tab:actions-overview}
@@ -104,6 +139,7 @@ In the table is also provided the main purpose of the action and a small descrip
 These actions make for more efficient, more understandable and more reliable code, why they are used.
 
 % textidote: ignore begin
+
 \subsubsection{Quality control}
 % textidote: ignore end
 
