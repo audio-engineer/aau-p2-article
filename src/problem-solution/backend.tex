@@ -2,25 +2,54 @@
 \section{Back end}\label{sec:backend}
 % textidote: ignore end
 
-% textidote: ignore begin
-\subsection{Real-time database}\label{subsec:realtime-database}
-% textidote: ignore end
+The back end of the application consists of multiple parts: A real-time NoSQL database~\cite{nosql}, authentication
+database, Stockfish-powered REST API, and serverless edge functions.
+
+In the following sections, we will take a more in-depth look at some of those components.
 
 % textidote: ignore begin
-\subsection{Stockfish implementation}\label{subsec:stockfish-implementation}
+
+\subsection{Real-time database}\label{subsec:real-time-database}
 % textidote: ignore end
 
-To accompany the chess engine implementation requirement from the software requirement specification seen in
-Section~\ref{sec:software-requirement-specification}, Stockfish needs to be implemented.
-As Stockfish is a binary program, it is not possible to run it in the browser, why an alternative solution using a
-Google Cloud Run container is used.
-To use Google Cloud Run an image needs to be created.
+The real-time database is provided through the Google Firebase Realtime Database~\cite{realtime-database} service.
+This service provides an easy to integrate ``real-time database'', i.e., a database whose primary job is to synchronize
+data between database clients, which, in our case, are the client front ends.
+In other words, when data changes on one client, this data can easily be pushed to the remote cloud-hosted database,
+which then, in turn, notifies the other clients of the data mutation.
+This process ensures data synchronization between application clients.
+It is achieved through the database's built-in WebSocket server, which lets the clients create a real-time connection
+to the database.
+The way that this feature is leveraged in our solution application is that it's used for updating the chessboard, lobby,
+and chat states on each of the clients.
+The chessboard piece state, without a doubt, has to be instantly synchronized between the players' and spectators'
+clients, to create a smooth game experience.
+The same goes for the in-game chat, and the lobby, which should show all the created and running matches in real time,
+so that signed-in users easily can join or view a match.
+
+% textidote: ignore begin
+
+\subsection{Stockfish API}\label{subsec:stockfish-api}
+% textidote: ignore end
+
+To fulfill the chess engine implementation requirement from the software requirement specification seen in
+Section~\ref{sec:software-requirement-specification}, an instance of Stockfish needed to be added to the solution.
+As Stockfish is binary executable software written in C++, it is not possible to run it in the browser,
+unless it's compiled to WebAssembly~\cite{web-assembly}, which can natively run in modern browsers.
+The WebAssembly approach was not used in favor of a simpler REST API approach,
+which features a simple Python script running in a containerized cloud environment.
+This Python script calls a Stockfish wrapper library, which in turn calls Stockfish, and passes the response back to
+the Python script, which generates an HTTP response.
+The containerized environment to go the with script was created to ease the development and deployment processes.
+Containerized applications can easily be built and started for local development, and also easily be built and deployed
+to the cloud.
+For the cloud hosting of this container image, Google Cloud Run~\cite{google-cloud-run} was selected.
 Reference is made to our Stockfish image in Appendix A for the repository wherein the source code for the image is
 contained.
 
-Another issue with the Stockfish binary is that it provides a lot of information when its built-in functions are
+Another issue with the Stockfish software is that it provides a lot of information when its built-in functions are
 executed.
-For our use case, we only need a few specific key data values to later display on the frontend.
+For our use case, we only require a few specific key data values to later display on the front end.
 One solution to this problem is to run the binary and pipe all the output information directly to the frontend and
 filter through it in the frontend.
 The advantages of this method is that the developers would be able to keep using TypeScript for the programming of the
@@ -46,6 +75,7 @@ The position is as before mentioned communicated through a FEN (Forsyth-Edwards 
 The FEN string is produced by the frontend and is included in the request for the position evaluation.
 
 % textidote: ignore begin
+
 \subsubsection{Function: \texttt{evaluate\_position}}\label{subsubsec:function:evaluate_position}
 % textidote: ignore end
 
@@ -72,6 +102,7 @@ It returns an object of type \texttt{EvaluatePositionResponse}, which contains a
 statistics regarding whether the game was won, drawn or lost, and a list of the top three recommended moves.
 
 % textidote: ignore begin
+
 \subsubsection{Function: \texttt{analyze\_move}}\label{subsubsec:function:analyze_move}
 % textidote: ignore end
 
