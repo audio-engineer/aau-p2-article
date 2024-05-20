@@ -48,3 +48,4 @@ Stockfish-powered
 Vercel
 WebSocket
 LLMs
+Realtime
