@@ -4,37 +4,43 @@
 
 As mentioned in Section~\ref{subsec:must-haves}, some key features, hereby explanations and interactivity, are not
 implemented in the first release of the ChessTeacher project.
-% textidote: ignore begin % [lt:en:EN_REPEATEDWORDS]
 This makes for an application that in the current state may not suffice to resolve the problem statement.
-There are several reasons for this gap between our solution and a solution that sufficiently satisfies the problem.
+There are several reasons for this gap and this section will discuss a possible solution to this issue.
+
+Artificial intelligence (AI) has seen a significant increase in popularity in recent years, with the development of
+large language models (LLMs) being one of the most notable advancements.
+LLMs provide a way to generate human-like text, which can be used in a variety of applications, with chatbots being a
+popular example.
+As the core concept of this project is replacing a human chess coach with a computer, LLMs could be a valuable addition.
+
+A potential use case for an LLM in the project could be to provide explanations for the moves suggested by Stockfish.
+Currently, the user is given the three best moves without any explanation as to why they are the best.
+By using an LLM, the user could ask follow-up questions to the feedback, and the LLM could provide a more detailed
+explanation.
+An example of this interaction can be seen in Figure~\ref{fig:llm}.
+
+% textidote: ignore begin
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{llm}
+    \caption{Example of a conversation with an LLM.}\label{fig:llm}
+\end{figure}
 % textidote: ignore end
 
-One reason is, that adding the necessary missing features is rather complex and time-consuming.
-As the project has a strict deadline and as the developers are learning the languages and software whilst making the
-project, time is somewhat limited.
-Prioritizing the features to implement is therefore necessary.
-One could argue that the missing features are more vital to the problem than some not as vital implemented features
-and should therefore be prioritized higher.
-Even though this is true, the reason is that the developers did not have a finished plan for the project at the
-beginning of the project and therefore did not have a completed prioritized feature list as a baseline.
-Throughout the development process, features are added and removed as the developers' knowledge-base around the topic of
-the project improves and grows.
-It is therefore difficult to start from a completed features list.
-Another argument is that the developers are implementing features chronologically, why some less important features are
-implemented before features that has a higher priority.
-This approach may not be the most effective in the long term, however, it provides a simpler way to better visualize the
-overall progress.
+It is important to note that LLM models are not perfect, and there are some potential issues that could arise from
+implementing one.
+The main concern is that the LLM could provide incorrect information, which could be detrimental to the learning
+experience.
+ChatGPT, a popular LLM, is known for its inability to actually play chess, as it often makes illegal
+moves~\cite{llm-chess}.
+The team however believes that Stockfish could be used in conjunction with the LLM to ensure that the information
+provided is correct.
+That would solve the issue of incorrect information, but it would also require a substantial amount of work.
 
-Another reason is, that the developers do not have the experience yet to know how to effectively implement the features.
-Even though the process of implementing the core of LLM's is not too complicated, there are a lot of pitfalls that on
-the contrary are complicated and are not worth the risk to potentially encounter and having to solve.
-An example of a pitfall is that LLM API's most often have a price tag, and often a rather steep one.
-It is not straightforward how do deal with limiting the amount of requests made to an LLM API and how to avoid other
-common pitfalls, as the developer team is rather new to the field of software engineering and web development
-especially.
-The potential consequences of overlooked flaws in the code resulting in overdraft or other financial pitfalls is
-determined to be too great for it to be worth implementing in the first release of the program.
-
-Therefore, due to the reasons mentioned above LLM implementation is ultimately excluded.
-One potential future solution to implement these missing features could be to implement them using proprietary software
-such as ChatGPT to generate the feedback based on the Stockfish evaluation.
+The team did consider using an LLM during the planning phase of the project, but ultimately decided against it.
+The main reason was because the team expected that Stockfish would provide a sufficient level of interactivity for the
+users.
+However, as evident from the usability testing results in Section~\ref{sec:results}, the feedback from Stockfish was
+not able to contribute to the learning experience as much as the team had hoped.
+Reflecting on this, the team believes that an LLM could be a valuable addition to the project, and should be implemented
+if the project were to be expanded.
