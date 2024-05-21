@@ -5,7 +5,6 @@ the team conducted usability testing to gather feedback on the project.
 This feedback would be used to improve the website and game before the final release.
 It could also provide the team with insights into the user experience and the game's playability.
 
-
 \section{Methodology}\label{sec:methodology}
 
 The tests were conducted by multiple members of the team, so to keep the results consistent, a methodology was
@@ -16,7 +15,6 @@ The script was divided into four parts: introduction, user interface and experie
 The parts were designed like an interview, where the team members would first show them the aspects of the website,
 then let them play the game for themselves, and finally ask a series of questions to gather their feedback.
 The results in Section~\ref{sec:results} are based on their feedback rather than the script.
-
 
 \section{Participants}\label{sec:participants}
 
@@ -43,90 +41,74 @@ This section will introduce the participants and their background.
 \end{itemize}
 
 % textidote: ignore begin % due to section being too short
-
-
 \section{Results}\label{sec:results}
 % textidote: ignore end
 
 The results of the test are based on the feedback from the participants.
-The feedback was divided into three categories similar to the methodology: interface and experience, gameplay, and
-feedback.
-Each of these categories will have a mixture of all participants' feedback, providing a comprehensive view of the user
-test.
+It is compacted into two main focus points, that being the learning aspect of the project and a potential solution to
+their feedback.
+The last subsection will cover any other feedback that the participants provided.
 
-\subsection{Interface and experience}\label{subsec:ui/ux}
+\subsection{Learning experience}\label{subsec:learning-experience}
 
-The overall feedback on the interface was positive.
-Everyone thought that the website was visually appealing, calling it pretty.
-The team did however receive some constructive criticism.
-
-Peter pointed out that the front page was not intuitive and Clara suggested that the buttons should be larger, labelled,
-and link together.
-Peter also mentioned that it was difficult to figure out how to play, he proposed that the About page should contain
-information on how to create an account and what the website is about.
-
-The in-game interface was also critiqued.
-Clara noted that the Stockfish feedback lacked visual cues, her idea was that there should be arrows on the chessboard,
-which is something that the team had previously discussed.
-Peter mentioned that the notations provided by Stockfish were incorrect and complained about the lack of sound effects
-and there being no apparent indication for when a game is over.
-Meanwhile, Ronja thought that nothing was missing.
-
-\subsection{Gameplay}\label{subsec:gameplay}
-
-The users critiqued the gameplay, with the main focus being on the Stockfish implementation.
-Clara thought that the Stockfish feedback was too direct, suggesting that it should give smaller hints instead of the
-direct solution.
-Peter mentioned that the feedback should provide future moves along with the current move.
+The main focus point with the usability testing was the learning aspect of the project, because that's the goal of the
+project.
+The feedback on the learning aspect was not very positive.
 Ronja didn't immediately understand what the Stockfish feedback was, but after using Stockfish a little, she lost
 interest in it.
-This indicates that the current Stockfish implementation has a lot of room for improvement on what feedback it provides
-and how to provide it to the player.
+Clara thought that the Stockfish feedback was too direct, and Peter mentioned that the feedback should provide future
+moves along with the current move.
+None of them thought that the feedback was helpful.
+This indicates that the feedback from Stockfish has a lot of room for improvement, as only providing the best move is
+not enough for learning, because players wouldn't understand why it's the best move.
+The team was already aware of this issue and had discussed a potential solution, which was conveyed to the users in the
+next focus point.
 
-Clara also mentioned that the game should have more teaching tools, such as puzzles and guides to how to play chess.
-The team considered these features given the learning nature of the game, but there are already existing solutions that
-provide them, so they were not prioritized, instead focusing on the coaching aspect of the game.
+\subsection{Potential solution}\label{subsec:potential-solution}
 
-Lastly, the users were asked about the idea of using machine learning along with Stockfish to provide feedback.
+As a potential solution, users were asked about the idea of using a large language model along with Stockfish to provide
+feedback.
 The rationale behind this question was due to a prior discussion within the team, which will be later discussed in
 Section~\ref{sec:large-language-model-implementation}.
-Clara and Ronja both liked the idea of using machine learning, while Peter was more skeptical.
+Clara and Ronja both liked the idea of using a large language model, while Peter was more skeptical.
 He did not particularly like the idea due to the lack of control over the large language model's answers, so the team
 cannot be guaranteed that it'll provide correct information.
 Clara however thinks that in combination with Stockfish it could provide accurate information whilst also giving more
 natural responses and explanations.
+She and Ronja think that a natural response would help a lot with understanding the feedback.
+An example given was that the player could ask follow-up questions, which the large language model could answer,
+providing a more interactive learning experience.
 
-% textidote: ignore begin % due to section being too short
+\subsection{Other feedback}\label{subsec:other-feedback}
 
-\subsection{Feedback}\label{subsec:feedback}
-% textidote: ignore end
-
-To conclude the usability testing, the participants were asked to provide their final thoughts on the project, from the
-idea to the execution.
-Peter's thoughts are a little mixed.
-Ronja had a positive experience, but only after she understood how to use Stockfish.
-Clara thinks that the website can motivate beginners to play chess, and she wishes that she used an engine like
-Stockfish
-at the academy where she learned to play chess.
-% textidote: ignore begin % due to chess.com
-She and Ronja would use the website again, but Peter would rather use alternatives like Chess.com and Lichess, because
-he believes that they can do everything our website can do and more.
-% textidote: ignore end
-
-% textidote: ignore begin % due to section being too short
-
+The team got a lot of feedback unrelated to Stockfish that can also hinder the learning experience.
+Peter pointed out that the front page was not intuitive and Clara suggested that the buttons should be larger, labelled,
+and link together.
+Peter also mentioned that it was difficult to figure out how to play, saying that the About page should contain
+more technical information.
+Clara noted that the Stockfish feedback lacked visual cues, which is something that the team had also previously
+discussed.
+Peter mentioned that the notations provided by Stockfish were overcomplicated, complained about the lack of sound
+effects and no apparent indication for when a game is over.
+Clara mentioned that the game should have more teaching tools, such as puzzles and guides to how to play chess.
+The team considered these features given the learning nature of the game, but they focused on the coaching aspect of the
+game instead.
 
 \section{Conclusion}\label{sec:tests-conclusion}
-% textidote: ignore end
 
-The feedback from the users was generally positive, but there are still areas that need improvement.
-The team received a lot of suggestions for areas to improve, some of which were already discussed prior to the user
-tests, but also some new ones.
-For example, expanding the About page to include information on how to create an account and what the website is about.
-The team already knew what it's about, but had not considered that new users might not.
-Another example is the wrong notations provided by Stockfish, which the team was not aware of.
-Feedback on the Stockfish implementation was also valuable, but some suggestions could not be implemented due to time
-constraints.
-Overall, the usability testing was a success,
-and the feedback provided valuable insights for the team on how to improve the website and game before the final
-release.
+While there are a lot of issues that need to be addressed, the overall opinion of the project was positive.
+At the end of the usability testing, the participants were asked for their final thoughts on the project.
+Clara and Ronja had a positive experience, and they would use the website again because they like the idea of using an
+engine like Stockfish to improve their chess skills.
+Peter, on the other hand, would rather use alternatives like \url{Chess.com} and Lichess, because he believes that they
+can do everything our website can do and more.
+The main point of concern was the Stockfish feedback, because that's the main feature of the project.
+The team has already discussed a potential solution to this issue, which was well received by the participants.
+There was also a lot of great feedback that the team was not aware of, which will be taken into consideration when
+improving the website and game.
+However, since the focus of the project is on the learning aspect, the main priority will be to improve the Stockfish
+feedback.
+Two of the three participants like the idea of using a large language model to provide feedback, so the team is more
+confident in this solution.
+Overall, the usability testing was a success, and the feedback provided valuable insights for the team on how to improve
+the website and game before the final release.
