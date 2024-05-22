@@ -7,10 +7,7 @@ database, Stockfish-powered REST API, and serverless edge functions.
 
 In the following sections, we will take a more in-depth look at some of those components.
 
-% textidote: ignore begin
-
 \subsection{Real-time database}\label{subsec:real-time-database}
-% textidote: ignore end
 
 The real-time database is provided through the Google Firebase Realtime Database~\cite{realtime-database} service.
 This service provides an easy to integrate ``real-time database'', i.e., a database whose primary job is to synchronize
@@ -27,49 +24,80 @@ clients, to create a smooth game experience.
 The same goes for the in-game chat, and the lobby, which should show all the created and running matches in real time,
 so that signed-in users easily can join or view a match.
 
-% textidote: ignore begin
-
 \subsection{Stockfish API}\label{subsec:stockfish-api}
-% textidote: ignore end
 
 To fulfill the chess engine implementation requirement from the software requirement specification seen in
-Section~\ref{sec:software-requirement-specification}, an instance of Stockfish needed to be added to the solution.
+Section~\ref{sec:software-requirement-specification}, an instance of a chess engine needed to be added to the solution.
+This presents various questions as e.g., what engine to use, and how to connect it with the rest of the solution.
+The development team considered multiple options,
+but settled on the Stockfish~\cite{stockfish} engine for a variety of reasons, which will be explained in the following
+section.
+
+\subsubsection{Rationale}
+
+Stockfish is arguably one of the strongest chess engines~\cite{about-stockfish} on the market right now,
+which makes it extremely desirable sheerly due to its processing power.
+Stockfish has, since 2013, participated in the Top Chess Engine Championship (abbr.\ TCEC) and ``has finished first or
+second in every season except one''~\cite{tcec-results,chess-com-stockfish},
+and this result just proves Stockfish's capabilities.
+
+% textidote: ignore begin % Due to `sh:d:002` on `\texttt{Chess.com}` and `\texttt{lichess.org}`
+Furthermore, \texttt{Chess.com} and \texttt{lichess.org}, two of our main competitors, also extensively make use of
+% textidote: ignore end
+Stockfish in their own implementations~\cite{chess-com-stockfish,about-lichess}, which is another remarkable indicator
+of Stockfish's capabilities and usage.
+
+But arguably one of the most compelling reasons for using Stockfish is the fact that the engine is free and open source,
+protected by the GPLv3 license~\cite{gplv3}.
+The GPLv3 license is quite permissible, i.e., the user can freely use and even modify the original source code, as long
+as the child software refers back to the license declaration and code repository of the licensed parent software.
+In the case of the \texttt{ChessTeacher} software, it means that the addition of Stockfish is fully permissible within
+the bounds of law.
+The source code repository for Stockfish can be found on its official GitHub repository~\cite{github-stockfish}, from
+where the source code can easily be downloaded and compiled using any C++-compatible compiler.
+
+Those three main reasons compelled the software team to pick Stockfish as the driving chess engine for the back end.
+In the following section, we will explain more concretely how Stockfish is connected to the rest of the software.
+
+\subsubsection{Usage}
+
 As Stockfish is binary executable software written in C++, it is not possible to run it in the browser,
 unless it's compiled to WebAssembly~\cite{web-assembly}, which can natively run in modern browsers.
-The WebAssembly approach was not used in favor of a simpler REST API approach,
+The WebAssembly approach was dropped in favor of a simpler REST API approach,
 which features a simple Python script running in a containerized cloud environment.
-This Python script calls a Stockfish wrapper library, which in turn calls Stockfish, and passes the response back to
-the Python script, which generates an HTTP response.
-The containerized environment to go the with script was created to ease the development and deployment processes.
+
+As a brief overview; on receiving an HTTP request, the Python script calls a Stockfish wrapper library,
+which in turn calls Stockfish and passes the response back to the Python script, which generates an HTTP response.
+The reasons for choosing this architecture and data flow are multiple:
+One of the core issues with the Stockfish software is that it outputs an overwhelming amount of plain text data to the
+standard output stream when its built-in functions are called through its command line interface.
+For our use case, we only require a few specific key data values from Stockfish to later display it on the browser front
+end.
+One solution to this problem would have been to execute Stockfish's CLI on the back end server, and stream its output
+data directly to the front end over TCP or UDP\@.
+Then, the data would have to be parsed and filtered on the front end, to extract the necessary data points.
+The advantage of this method is that the developers would be able to keep using TypeScript for the programming of the
+data processing as well as the other front end elements.
+However, one of the disadvantages of this approach is that it uses a lot of network data when communicating the
+information to the front end, which in turn is financially unsustainable.
+Instead, the container server running Stockfish and the Python script parses the data locally and only returns the data
+to the front end that is needed for the application to function.
+
+The containerized environment to go with the script and Stockfish was created to ease the development and deployment
+processes.
 Containerized applications can easily be built and started for local development, and also easily be built and deployed
 to the cloud.
-For the cloud hosting of this container image, Google Cloud Run~\cite{google-cloud-run} was selected.
-Reference is made to our Stockfish image in Appendix A for the repository wherein the source code for the image is
-contained.
+For the cloud hosting of this container image, Google Cloud Run~\cite{google-cloud-run} was selected, as it features
+a free tier for simple container images.
+Reference is made to our Stockfish image in Appendix~\ref{ch:source-code-repositories} for the repository wherein the
+source code for the image is contained.
 
-Another issue with the Stockfish software is that it provides a lot of information when its built-in functions are
-executed.
-For our use case, we only require a few specific key data values to later display on the front end.
-One solution to this problem is to run the binary and pipe all the output information directly to the frontend and
-filter through it in the frontend.
-The advantages of this method is that the developers would be able to keep using TypeScript for the programming of the
-data processing as well as the other frontend elements instead of incorporating other languages and data processing
-methods.
-However, the disadvantages is that this solution uses a lot of bandwidth when communicating the information to the
-frontend, which in turn becomes expensive rather quickly.
-Instead, the container running the image parse the data locally and only post the information to the frontend that is
-requested.
+To make sure the client is not waiting unnecessarily for the analysis of the position, while retaining some depth to the
+board state analysis, the developers set a hard-coded midpoint of depth 8 for the Stockfish binary.
 
-To accomplish this, a Python script has been included in the image containing the Stockfish binary.
-The script uses a FastAPI based web API to interact with the Stockfish binary.
-
-To make sure the user is not waiting for an unnecessarily long time for the analysis of the position and to make sure
-that there is at least some substance in the depth of the analysis, a hard-coded midpoint of depth 8 is set by the
-developers for the Stockfish binary.
+\subsection{Stockfish API functions}\label{subsec:stockfish-api-functions}
 
 The two main functionalities of the script are the functions \texttt{evaluate\_position} and \texttt{analyze\_move}.
-
-\subsection{Stockfish image functions}\label{subsec:stockfish-image-functions}
 
 The position is as before mentioned communicated through a FEN (Forsyth-Edwards Notation) string.
 The FEN string is produced by the frontend and is included in the request for the position evaluation.
@@ -81,7 +109,7 @@ The FEN string is produced by the frontend and is included in the request for th
 
 This function's main purpose is to evaluate a FEN position.
 The FEN position is then evaluated by Stockfish.
-A snippet of the function can bee seen in Listing~\ref{lst:main.py-evaluate_position}, where the function definition is
+A snippet of the function can be seen in Listing~\ref{lst:main.py-evaluate_position}, where the function definition is
 listed.
 
 \begin{lstlisting}[
@@ -107,7 +135,7 @@ statistics regarding whether the game was won, drawn or lost, and a list of the 
 % textidote: ignore end
 
 This function's main purpose is to analyze a single move.
-A snippet of the function can bee seen in Listing~\ref{lst:main.py-analyze_move}, where the function definition is
+A snippet of the function can be seen in Listing~\ref{lst:main.py-analyze_move}, where the function definition is
 listed.
 
 \begin{lstlisting}[
@@ -125,7 +153,7 @@ async def analyze_move(
 As before, in the definition, it can be seen that the function has a single formal parameter
 \texttt{analyze\_move\_request}, which is of type \texttt{AnalyzeMoveRequest}, which encapsulates a FEN string and a
 time tracking variable.
-In addition, it also encapsulates a move string, wherein the move to be analyzed is located.
-It returns an object of type \texttt{AnalyzeMoveResponse}, which contains an evaluation of the FEN position after the
-move is made, whether the move was a capture or not, and the absolute change in evaluation between the pre- and
-post-move FEN positions.
+In addition to that, it also encapsulates a move string, wherein the move to be analyzed is located.
+It returns an object of type \texttt{AnalyzeMoveResponse}.
+This object contains an evaluation of the board state after the move is made, whether the move was a capture or not,
+and the absolute change in evaluation between the pre- and post-move board positions.
