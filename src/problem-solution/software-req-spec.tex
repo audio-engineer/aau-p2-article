@@ -2,7 +2,7 @@
 \section{Software requirement specification}\label{sec:software-requirement-specification}
 % textidote: ignore end
 
-To answer to problem statement, an outline of the desired program features is made.
+To answer the problem statement, an outline of the desired program features is made.
 The method of choice for the requirement specifications is the MoSCoW model~\cite{hudaib2018}.
 The overview of the features the application will and will not entail are provided in Table~\ref{tab:srs}.
 In the table, the MoSCoW categories have the following meaning:
@@ -28,23 +28,25 @@ In the table, the MoSCoW categories have the following meaning:
             \\ \midrule
             Basic chess functionality                & Mo                       & {\ul~\ref{sec:chess}}
             \\ \midrule
-            Online multiplayer functionality         & Mo                       & {\ul~\ref{sec:multiplayer-analysis}}
+            Online multiplayer functionality         & Mo                       & {\ul~\ref{subsec:multiplayer}}
             \\ \midrule
             Applied learning principles              & Mo                       &
-                {\ul~\ref{sec:learning-methods-for-chess}}             \\ \midrule
-            Chess engine implementation              & Mo                       & {\ul~\ref{subsec:chess-engines}}
+                {\ul~\ref{sec:learning-methods-for-chess}}
             \\ \midrule
-            User accounts                            & S                        & {\ul~\ref{sec:multiplayer-analysis}}
+            Chess engine implementation              & Mo                       & {\ul~\ref{sec:chess-engines}}
             \\ \midrule
-            User registration and authentication     & S                        & {\ul~\ref{sec:multiplayer-analysis}}
+            User accounts                            & S                        & {\ul~\ref{subsec:multiplayer}}
             \\ \midrule
-            Engine feedback in English               & S                        & {\ul~\ref{subsec:chess-engines}}
+            User registration and authentication     & S                        & {\ul~\ref{subsec:multiplayer}}
+            \\ \midrule
+            Engine feedback in English               & S                        & {\ul~\ref{sec:chess-engines}}
             \\ \midrule
             Chat functionality                       & S                        &
-                {\ul~\ref{subsec:effects-multiplayer-has-on-learning}} \\ \midrule
-            Game listing                             & S                        & {\ul~\ref{sec:multiplayer-analysis}}
+                {\ul~\ref{subsec:multiplayer}}
             \\ \midrule
-            Analysis tool for post game analysis     & Co                       & {\ul~\ref{subsec:chess-engines}}
+            Game listing                             & S                        & {\ul~\ref{subsec:multiplayer}}
+            \\ \midrule
+            Analysis tool for post game analysis     & Co                       & {\ul~\ref{sec:chess-engines}}
             \\ \midrule
             Chess puzzles                            & Co                       & {\ul~\ref{sec:state-of-the-art}}
             \\ \midrule
@@ -52,11 +54,11 @@ In the table, the MoSCoW categories have the following meaning:
             \\ \midrule
             Board customization                      & Co                       & {\ul~\ref{sec:state-of-the-art}}
             \\ \midrule
-            AI vs AI matches                         & W                        & {\ul~\ref{subsubsec:ai-engines}}
+            AI vs AI matches                         & W                        & {\ul~\ref{subsec:ai-engines}}
             \\ \midrule
             Chess variants other than standard chess & W                        & {\ul~\ref{sec:chess}}
             \\ \midrule
-            AI training and machine learning         & W                        & {\ul~\ref{subsubsec:ai-engines}}
+            AI training and machine learning         & W                        & {\ul~\ref{subsec:ai-engines}}
             \\ \bottomrule
         \end{tabular}%
     }
