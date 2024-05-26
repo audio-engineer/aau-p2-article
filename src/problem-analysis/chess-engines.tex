@@ -10,53 +10,54 @@ Chess engines are defined by~\url{Chess.com} as such:
     lot of searching and processing similar to a search engine~\cite{chess-com-chess-engines}.
 \end{quote}
 
-So the goal of a chess engine is to understand all the game mechanics and then evaluate a position.
-This evaluation is the most important thing a chess engine should be able to do, but as this is a very abstract
-problem, there exist many ways to solve the problem which will be discussed below.
+The goal of a chess engine is to understand all the game mechanics and then evaluate a chess position to output some
+information about said position.
+This evaluation is the most important thing a chess engine should be able to do.
+As this is a very abstract problem to solve, there exist many ways to achieve solutions which will be discussed in
+the following sections.
 
 \input{problem-analysis/engines-and-webapps}
 
 \subsection{Conventional/brute force engines}\label{subsec:conventional-engines}
 
 A conventional chess engine can be simply described as a brute force approach to solve chess.
-This means that the main limiting factor of how good the engine will be is the computational power of the system.
+This means that the main limiting factor of a chess engine's output quality is the computational power of the system in
+which it is executed.
 Such a chess engine consists of two parts, an evaluation function and a search function.
-Chess is a very complex game without a clear-cut solution, this is because if you wanted to brute force all the possible
-moves that the board could be in you would have to search \( 10^{111} \) different positions, that is more atoms than
-there are in the universe, and with current technology this would be impossible to compute~\cite{atoms}.
+Chess is a very complex game without a clear-cut solution to most positions.
+Brute forcing all the possible legal moves of a position and moves after those moves, and so on, would require searching
+up to~\( 2 \times 10^{42} \) different positions~\cite{steinerberger2014}.
+With current technology, this would be impossible to compute.
 
 To ease this computational burden, chess engines have a value called depth or search depth.
-The depth value can be understood as how deep the engine should look into the future, as going to the end is not
-possible, to give the best move at some current position.
+The depth value can be understood as how deep the engine should look into the future.
+Going to the end of a move chain is not practical, as mentioned before, to give the best move at some current position.
 
 The search function can be further optimized in different ways.
 However, optimizations are, in essence, clever ways to search for moves that are more likely to be good before others.
 It will also allow cutting out moves that are guaranteed to be worse than the already searched move.
-This can be visualized through a tree structure as seen in (Some figure).
-
-%TODO input the correct figur.
 
 Evaluation of a chessboard can also be done in a lot of different ways, but that is only relevant in terms of
 implementation.
-What is important to understand for the evaluation is how it is shown.
-In normal chess you always have two players, and to represent the state of the game you would use a single number,
-that is in the range of some arbitrary numbers~\( -a : b\).
+What is important to understand for the evaluation is how it is communicated.
+To represent the state of the game in any position, a single number is often used, which
+is in the range of some arbitrary rational numbers~\( -a : b\).
 This is optimal because it allows a single number to represent the score of two people, where~\(-a\) would be
 the best score for black, and~\(b\) would be the best score for white.
-This representation is possible because chess is a zero-sum game with perfect information, which means that there is
-at least one optimal way to play for both white and black at any given position~\cite{zero-sum-games}.
+This representation is possible because chess is a zero-sum game when only playing the best moves, which means that
+there is at least one optimal way to play for both white and black at any given position~\cite{zero-sum-games}.
 
 % TODO Maybe add some example like explaining mini-max, though that could be argued to be in /method/problem solution.
 
-A conventional engine would, given some position, then search through all relevant moves to some depth, and then give
+A conventional engine would, given some position, search through all relevant moves to some set depth, and then provide
 the best move, or a list of ranked moves based on the evaluation of the positions.
 
 \subsection{AI engines}\label{subsec:ai-engines}
 
-Chess engines that implement neural networks to both search and/or evaluate, which we will call AI engines,
-have been making the news in many kinds of board games.
-This attention comes because that they have not only beaten top conventional engines,
-but that they also show new strategies and creative moves that go against previous strategy.
+Chess engines that implement neural networks to both search and/or evaluate, called AI engines, have been making the
+news in many kinds of board games.
+This reason for this attention is that AI engines have not only beaten top conventional engines,
+but also created new strategies and creative moves that do well against previously good strategies.
 
 This creativity comes from how they are built.
 More specifically, how the neural networks are trained, because as opposed to humans who learn by playing against other
@@ -64,12 +65,11 @@ humans that use already conventional strategies, AI engines learn by playing aga
 
 This is the key difference between conventional engines and AI engines.
 Conventional engines are based on the creator's knowledge of the game and the programmer's strategies.
-AI engines are self-taught, which means that although it will have to make a lot of errors in strategy at first.
-The engine will not be held back by faulty paradigms, which could hamper the potential of its
-capabilities.
+AI engines are self-taught, which means that although it will make a lot of errors in strategy at first, the engine will
+not be held back by faulty paradigms, which could hamper the potential of its capabilities.
 This method is also called reinforcement learning~\cite{how-neural-network-engines-work}.
 
-Another difference between conventional engines is that AI engines do not measure the evaluation is not numerical.
+Another difference to conventional engines is that AI engines do not measure the evaluation the same way.
 The rating is instead based on the probability of winning.
 This does not change how it chooses moves as it will still pick the best of all the futures it has searched.
 
@@ -91,7 +91,7 @@ This can be compared to the current highest rated chess player Magnus Carlsen, w
 rating of 2882~\cite{highest-ELO-chess-player}.
 
 Stockfish is also an open source project which means that everyone has access to it.
-The engine is also well documented which makes Stockfish a great choice to solve the problems mentioned earlier.
+The engine is also well documented which makes Stockfish a great choice for solving the problems mentioned earlier.
 
 % textidote: ignore begin
 \subsection{AlphaZero}\label{subsec:alphazero}
@@ -102,7 +102,7 @@ Alpha Zero was an AI first introduced in the form of AlphaGo Zero in 2016.
 This was the first version of the AI shown to the world.
 It was an AI made to play the ancient board game Go.
 
-Go is a board game played on a nine-by-nine grid, and is arguably a game more difficult than chess to make an engine
+Go is a board game played on a nine-by-nine grid, and is arguably a more challenging game than chess to make an engine
 around, because of the many possible positions and moves.
 It was thought impossible for computers to surpass humans until AlphaGo's introduction.
 
