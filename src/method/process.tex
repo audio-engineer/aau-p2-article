@@ -3,7 +3,7 @@
 % textidote: ignore end
 
 This section describes the different elements of the development process.
-Other development processes and protocols exist in the team, however only the most important ones are mentioned in the
+Other development processes and protocols exist in the team; however, only the most important ones are mentioned in the
 following sections.
 
 % textidote: ignore begin
@@ -11,7 +11,7 @@ following sections.
 \subsection{Development environment}\label{subsec:development-environment}
 % textidote: ignore end
 
-The project requires a number of different services to be running at the same time, which can be difficult to manage.
+The project requires a number of different services to be running at the same time, which can be challenging to manage.
 % textidote: ignore begin % Due to node.js being identified as an url
 That is the Node.js backend, Stockfish and Firebase Emulator.
 % textidote: ignore end
@@ -43,7 +43,7 @@ Having branches makes it simple to track what team members are working on and ho
 
 The team makes use of GitHub projects to plan out different tasks and issues to track bugs and features.
 A snapshot of some categories with some issues can be seen in Figure~\ref{fig:github-project}.
-In the figure, it is evident that issues move from category to category as the team progresses with them.
+In the figure, it is clear that issues move from category to category as the team progresses with them.
 
 The custom protocol is for a team member to assign one self to an issue and thereafter complete the task associated with
 the issue.
@@ -52,9 +52,9 @@ Another reason for this method is that it is clear to all members what problems 
 as the relevant issue is linked, thereby improving efficiency and clarity.
 This method of creating issue and assigning one self to them makes for a lot of freedom in development.
 
-This freedom however comes with the responsibility for team members to adequately assign themselves to enough issues to
-cover their respective workload commitments.
-Lastly, when having the list of issues dynamically update as team members resolves them makes for a clean and
+This freedom, however, comes with the responsibility for team members to adequately assign themselves to enough issues
+to cover their respective workload commitments.
+Having the list of issues dynamically update, as team members resolve them, makes for a clean and
 comprehensible overview of how much work needs to be done, how much is in progress, and how much has been done.
 
 % textidote: ignore begin
@@ -70,15 +70,16 @@ comprehensible overview of how much work needs to be done, how much is in progre
 \subsubsection{Automation}
 % textidote: ignore end
 
-GitHub Actions is used to run custom checks among others automatically.
+GitHub Actions are used to run custom checks among others automatically.
 Having the actions run on all lines of code makes for the security that other team members code is living up to the
 standards desired and agreed on by the team.
-Different actions are relevant for the four different repositories that makes up the entire project codebase.
-Reference to the repositories are made to Appendix~\ref{ch:source-code-repositories}.
+Different actions are relevant for the four different repositories that make up the entire project codebase.
+Reference to the repositories is made to Appendix~\ref{ch:source-code-repositories}.
 The two repositories with the most changes throughout the development process are those for the report and the
-front-end, why the focus is on the actions for these, even though the other repositories also have GitHub Actions
+front-end.
+The focus is therefore on the actions for these, even though the other repositories also have GitHub Actions
 attached to them.
-In Table~\ref{tab:actions-overview} it can be seen that the team mainly use 5 different actions.
+In Table~\ref{tab:actions-overview} it can be seen that the team mainly uses five different actions.
 In the table is also provided the main purpose of the action and a small description of them.
 
 % textidote: ignore begin
@@ -144,17 +145,19 @@ These actions make for more efficient, more understandable and more reliable cod
 % textidote: ignore end
 
 Another important process mechanism the team uses is the pull request feature of GitHub.
-In the pull request is where changes to be merged into the main branch is displayed as well as where the GitHub Actions
+In the pull request is where changes to be merged into the main branch are displayed as well as where the GitHub Actions
 runs are documented.
 The custom protocol is for at least two team members to accept the changes made before the commits in the pull request
 can be merged into the main branch.
-This safety feature makes it such that at least three of the five team members agrees with the changes made.
-By having this barrier it also makes sure that individual small changes can also be agreed on, and that they don't get
+This safety feature makes it such that at least three of the five team members agree with the changes made.
+By having this barrier, it also makes sure that individual small changes can also be agreed on, and that they don't get
 lost or go unseen by the rest of the team.
 
 One of the advantages to using this method over software like Overleaf is that GitHub provides a log of all changes made
-as well as ´blame', which makes it possible to see who made the changes at all times in local IDE's.
+as well as ´blame'.
+This makes it possible to see who made the changes at all times in local IDEs.
 Being able to quickly identify the author of a line makes communication in the team more efficient.
 One of the disadvantages is that development typically takes longer, as every change needs to be reviewed by the team
 before being able to be merged.
-This time delay can be a problem when approaching deadlines, however in the big picture it is not that big of an issue.
+This time delay can be a problem when approaching deadlines, however, in the big picture, it is not that big of an
+issue.

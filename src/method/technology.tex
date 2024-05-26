@@ -1,7 +1,7 @@
 \section{Technology}\label{sec:technology}
 
 Throughout the development of the project, a number of different tools and publicly available packages are used to
-assist the development process.
+help the development process.
 These different technologies were chosen based on the team's needs and the requirements of the project.
 The following sections will describe the different technologies used in the project.
 
@@ -10,14 +10,14 @@ The following sections will describe the different technologies used in the proj
 As the project is a web application, TypeScript~\cite{typescript} is used as the main programming language.
 TypeScript is a superset of JavaScript, with the main difference being that TypeScript is statically typed, while
 JavaScript is dynamically typed.
-It can be very useful in larger projects, as it helps to catch errors during compile-time as opposed to run-time.
+It can be beneficial in larger projects, as it helps to catch errors during compile-time as opposed to run-time.
 This is the first time for many of the team members to use TypeScript, but they find it to be safer than JavaScript
 for larger projects.
 
 The frontend of the project is built with React~\cite{react}, which is a JavaScript/TypeScript library for building
 user interfaces.
 It is developed and maintained by Meta, and is used by many large companies.
-React is focused on mobile applications first and foremost, however it is also useful for desktop applications, why it
+React is focused on mobile applications first and foremost; however, it is also useful for desktop applications, why it
 is chosen as the top level UI library.
 
 % textidote: ignore begin % due to node.js and next.js being identified as an url
@@ -32,8 +32,8 @@ together.
 
 \subsection{JavaScript libraries}\label{subsec:libraries}
 
-Throughout the project the team uses a number of different libraries to aid with the mundane tasks of web development.
-% textidote: ignore begin % Due to chess.js being identified as an url
+Throughout the project, the team uses a number of different libraries to aid with the mundane tasks of web development.
+% textidote: ignore begin % Due to chess.js being identified as an url.
 For example, as the focus was on the learning aspect of the project, the team uses Chess.js~\cite{chess.js} to handle
 the chess logic and react-chessboard~\cite{react-chessboard} to display the chessboard.
 % textidote: ignore end
@@ -65,7 +65,7 @@ processing and analysis application.
 There are a number of different hosting providers available that were considered for the front end application.
 Amazon Web Services~\cite{aws} is a popular choice, but can be expensive and requires a large time investment.
 Instead, Vercel~\cite{vercel} was chosen due to its features, convenience and low pricing.
-Furthermore, Vercel is also the vendor that makes \url{Next.js}, the front end framework that was selected,
+Furthermore, Vercel is also the vendor that makes~\url{Next.js} the front end framework that was selected,
 so it was also convenient to pick a hosting provider that features out-of-the-box support for the framework in use.
 
 As for the authentication and database, Firebase~\cite{firebase} was considered and eventually settled on.
@@ -82,4 +82,4 @@ And lastly, the Stockfish service needed to be hosted as well, but its design ca
 Stockfish, being a C++ application, can't easily be hosted on the internet.
 An intermediate REST API was therefore written and containerized, to prepare Stockfish for deployment.
 For the final containerized Stockfish application, Google Cloud Run~\cite{google-cloud-run} was decided on as the
-hosting provider, since it features easy and relatively cheap deployment of container applications.
+hosting provider, since it features easy and relatively low-cost deployment options for container applications.
