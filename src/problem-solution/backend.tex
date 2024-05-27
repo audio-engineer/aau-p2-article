@@ -4,8 +4,7 @@
 
 The back end of the application consists of multiple parts: A real-time NoSQL database~\cite{nosql}, authentication
 database, Stockfish-powered REST API, and serverless edge-functions.
-
-In the following sections, we will take a more in-depth look at some of those components.
+The following sections will take a more in-depth look at some of those components.
 
 \subsection{Real-time database}\label{subsec:real-time-database}
 
@@ -15,6 +14,7 @@ data between database clients, which, in our case, are the client front ends.
 In other words, when data changes on one client, this data can easily be pushed to the remote cloud-hosted database,
 which then, in turn, notifies the other clients of the data mutation.
 This process ensures data synchronization between application clients.
+
 It is achieved through the database's built-in WebSocket server, which lets the clients create a real-time connection
 to the database.
 The way that this feature is leveraged in our solution application is that it's used for updating the chessboard, lobby,
@@ -57,7 +57,7 @@ The source code repository for Stockfish can be found on its official GitHub rep
 where the source code can easily be downloaded and compiled using any C++-compatible compiler.
 
 These three main reasons compel the software team to pick Stockfish as the driving chess engine for the back end.
-In the following section, we will explain more concretely how Stockfish is connected to the rest of the software.
+The following sections explain more concretely how Stockfish is connected to the rest of the software.
 
 \subsubsection{Usage}
 
@@ -71,8 +71,8 @@ which in turn calls Stockfish and passes the response back to the Python script,
 The reasons for choosing this architecture and data flow are multiple:
 One of the core issues with the Stockfish software is that it outputs an overwhelming amount of plain text data to the
 standard output stream when its built-in functions are called through its command line interface.
-For our use case, we only require a few specific key data values from Stockfish to later display it on the browser front
-end.
+For our use case, the team only requires a few specific key data values from Stockfish to later display it on the
+browser front end.
 One solution to this problem could have been to execute Stockfish's CLI on the back end server, and stream its output
 data directly to the front end through TCP or UDP\@.
 Then, the data would have to be parsed and filtered on the front end, to extract the necessary data points.
