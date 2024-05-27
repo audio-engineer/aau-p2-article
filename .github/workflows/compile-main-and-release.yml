@@ -1,11 +1,12 @@
-name: Compile Main
+name: Compile Main And Release
 on:
   push:
     branches:
       - main
+      - 'release/**'
 jobs:
-  compile-main:
-    name: Compile Main
+  compile-main-and-release:
+    name: Compile Main And Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,10 +17,12 @@ jobs:
           root_file: main.tex
           working_directory: src/
           args: ''
-      - name: Get Commit Hash
-        run: echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
+      - name: Set Environment Variables
+        run: |
+          echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
+          echo "ref_name=$(echo "$GITHUB_REF_NAME" | sed -e 's/\//-/g' -e 's/\./-/g')" >> "$GITHUB_ENV"
       - name: Rename PDF
-        run: sudo mv out/main.pdf "out/${{ github.ref_name }}-${{ env.sha_short }}.pdf"
+        run: sudo mv out/main.pdf "out/${{ env.ref_name }}-${{ env.sha_short }}.pdf"
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
