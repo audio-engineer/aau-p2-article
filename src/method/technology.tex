@@ -2,7 +2,7 @@
 
 Throughout the development of the project, a number of different tools and publicly available packages are used to
 help the development process.
-These different technologies were chosen based on the team's needs and the requirements of the project.
+These different technologies are chosen based on the team's needs and the requirements of the project.
 The following sections will describe the different technologies used in the project.
 
 \subsection{Programming stack}\label{subsec:programming}
@@ -11,10 +11,8 @@ As the project is a web application, TypeScript~\cite{typescript} is used as the
 TypeScript is a superset of JavaScript, with the main difference being that TypeScript is statically typed, while
 JavaScript is dynamically typed.
 It can be beneficial in larger projects, as it helps to catch errors during compile-time as opposed to run-time.
-This is the first time for many of the team members to use TypeScript, but they find it to be safer than JavaScript
-for larger projects.
 
-The frontend of the project is built with React~\cite{react}, which is a JavaScript/TypeScript library for building
+The frontend of the project is built with React~\cite{react}, which is a JavaScript and TypeScript library for building
 user interfaces.
 It is developed and maintained by Meta, and is used by many large companies.
 React is focused on mobile applications first and foremost; however, it is also useful for desktop applications, why it
@@ -53,33 +51,33 @@ other.
 % textidote: ignore end
 
 Since chess, as previously discussed, is inherently a multiplayer game,
-infrastructure is required that accommodates this requirement.
+infrastructure is required to accommodate this requirement.
 More specifically, online multiplayer games, as the name implies, require some kind of network connection between the
 players, which is usually facilitated by the internet.
-Therefore, it was obvious that the solution web application would have to be hosted on the internet.
-To complicate issues further, it was determined that the web application would have to consist of multiple separate and
-independent components, that would all have to be hosted online and communicate with each other over the internet.
+Therefore, it is clear that the solution web application will have to be hosted on the internet.
+To complicate issues further, it is determined that the web application will have to consist of multiple separate and
+independent components, that will have to be hosted online and communicate with each other over the internet.
 Those components include: The front end application, the authentication and match databases, and the Stockfish-powered
 processing and analysis application.
 
 There are a number of different hosting providers available that were considered for the front end application.
 Amazon Web Services~\cite{aws} is a popular choice, but can be expensive and requires a large time investment.
-Instead, Vercel~\cite{vercel} was chosen due to its features, convenience and low pricing.
-Furthermore, Vercel is also the vendor that makes~\url{Next.js} the front end framework that was selected,
-so it was also convenient to pick a hosting provider that features out-of-the-box support for the framework in use.
+Instead, Vercel~\cite{vercel} is chosen due to its features, convenience and low pricing.
+Furthermore, Vercel is also the vendor that makes~\url{Next.js} the front end framework that is selected,
+so it is also convenient to pick a hosting provider that features out-of-the-box support for the framework in use.
 
-As for the authentication and database, Firebase~\cite{firebase} was considered and eventually settled on.
-The main reason for this decision is that Firebase allows for easy authentication using Google accounts, which was
+For the authentication and database, the group uses Firebase~\cite{firebase}.
+The main reason for this decision is that Firebase allows for easy authentication using Google accounts, which is
 convenient to use and essential for building the multiplayer system that requires some form of authentication,
 i.e., unique player identities.
 Additionally, Firebase features a real time database service, which is a NoSQL database and WebSocket server in one.
 Such a service is a crucial building stone for a real time multiplayer application like our proposed solution, because
 it facilitates real time exchange of state and other data between the client front end applications.
-To conclude, Firebase was chosen because it provides a lot of the features that are required to create an application
+To conclude, Firebase is chosen because it provides a lot of the features that are required to create an application
 like the solution in question.
 
-And lastly, the Stockfish service needed to be hosted as well, but its design came with a whole new set of challenges.
+And lastly, the Stockfish service needs to be hosted as well, but its design comes with a whole new set of challenges.
 Stockfish, being a C++ application, can't easily be hosted on the internet.
-An intermediate REST API was therefore written and containerized, to prepare Stockfish for deployment.
-For the final containerized Stockfish application, Google Cloud Run~\cite{google-cloud-run} was decided on as the
+An intermediate REST API is therefore written and containerized, to prepare Stockfish for deployment.
+For the final containerized Stockfish application, the group uses Google Cloud Run~\cite{google-cloud-run} as the
 hosting provider, since it features easy and relatively low-cost deployment options for container applications.

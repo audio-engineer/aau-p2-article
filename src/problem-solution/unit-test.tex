@@ -1,5 +1,5 @@
 \subsection{Unit testing}\label{subsec:unit-testing}
-When creating the functions for the REST API, unit tests were created to ensure that the functions worked as intended.
+When creating the functions for the REST API, unit tests were created to ensure that the functions work as intended.
 The unit tests were created using FASTAPI's built-in testing functionality called \texttt{TestClient}.
 
 \begin{lstlisting}[
@@ -26,10 +26,15 @@ requests.
 Secondly, it ensures that the endpoint can handle a FEN string as input and return a response.
 Lastly, it ensures that the response status code is 200, which means that the request was successful.
 
-\pagebreak
-
-Below is an example of a test that checks if the endpoint returns a status code of 400 when an invalid FEN
-string is provided.
+In Listing~\ref{lst:test_main.py-evaluate_position-invalid-fen}, a test of the \texttt{evaluate-position} function is
+shown.
+%textidote: ignore begin
+The purpose of this test is to ensure the endpoint returns a status code of 400 and a JSON response with the
+%textidote: ignore end
+%textidote: ignore begin
+message \texttt{''Invalid FEN''} when an invalid FEN string is provided.
+%textidote: ignore end
+This ensures that the endpoint can handle invalid input and return an appropriate error response.
 
 \begin{lstlisting}[
     style=pythonStyle,
@@ -44,13 +49,3 @@ def test_evaluate_position_invalid_fen():
     assert response.status_code == 400
     assert response.json() == {"detail": "Invalid FEN"}
 \end{lstlisting}
-
-In Listing~\ref{lst:test_main.py-evaluate_position-invalid-fen}, a test of the \texttt{evaluate-position} function is
-shown.
-%textidote: ignore begin
-The purpose of this test is to ensure the endpoint returns a status code of 400 and a JSON response with the
-%textidote: ignore end
-%textidote: ignore begin
-message \texttt{''Invalid FEN''} when an invalid FEN string is provided.
-%textidote: ignore end
-This ensures that the endpoint can handle invalid input and return an appropriate error response.

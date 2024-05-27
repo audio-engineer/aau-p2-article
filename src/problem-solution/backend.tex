@@ -19,15 +19,15 @@ It is achieved through the database's built-in WebSocket server, which lets the 
 to the database.
 The way that this feature is leveraged in our solution application is that it's used for updating the chessboard, lobby,
 and chat states on each of the clients.
-The chessboard piece state, without a doubt, has to be instantly synchronized between the players' and spectators'
-clients, to create a smooth game experience.
+The chessboard piece state has to be instantly synchronized between the players' and spectators'
+clients to create a smooth game experience.
 The same goes for the in-game chat, and the lobby, which should show all the created and running matches in real time,
 so that signed-in users easily can join or view a match.
 
 \subsection{Stockfish API}\label{subsec:stockfish-api}
 
 To fulfill the chess engine implementation requirement from the software requirement specification seen in
-Section~\ref{sec:software-requirement-specification}, an instance of a chess engine needed to be added to the solution.
+Section~\ref{sec:software-requirement-specification}, an instance of a chess engine needs to be added to the solution.
 This presents various questions as e.g., what engine to use, and how to connect it with the rest of the solution.
 The development team considered multiple options,
 but settled on the Stockfish~\cite{stockfish} engine for a variety of reasons, which will be explained in the following
@@ -45,10 +45,10 @@ and this result just proves Stockfish's capabilities.
 Furthermore, \texttt{Chess.com} and \texttt{lichess.org}, two of our main competitors, also extensively make use of
 % textidote: ignore end
 Stockfish in their own implementations~\cite{chess-com-stockfish,about-lichess}, which is another remarkable indicator
-of Stockfish's capabilities and usage.
+of Stockfish's capabilities and usage, as mentioned in Section~\ref{sec:state-of-the-art}.
 
-But arguably one of the most compelling reasons for using Stockfish is the fact that the engine is free and open source,
-protected by the GPLv3 license~\cite{gplv3}.
+However, arguably one of the most compelling reasons for using Stockfish is the fact that the engine is free and open
+source, protected by the GPLv3 license~\cite{gplv3}.
 The GPLv3 license is quite permissible, i.e., the user can freely use and even modify the original source code, as long
 as the child software refers back to the license declaration and code repository of the licensed parent software.
 In the case of the \texttt{ChessTeacher} software, it means that the addition of Stockfish is fully permissible within
@@ -56,7 +56,7 @@ the bounds of law.
 The source code repository for Stockfish can be found on its official GitHub repository~\cite{github-stockfish}, from
 where the source code can easily be downloaded and compiled using any C++-compatible compiler.
 
-Those three main reasons compelled the software team to pick Stockfish as the driving chess engine for the back end.
+These three main reasons compel the software team to pick Stockfish as the driving chess engine for the back end.
 In the following section, we will explain more concretely how Stockfish is connected to the rest of the software.
 
 \subsubsection{Usage}
@@ -73,8 +73,8 @@ One of the core issues with the Stockfish software is that it outputs an overwhe
 standard output stream when its built-in functions are called through its command line interface.
 For our use case, we only require a few specific key data values from Stockfish to later display it on the browser front
 end.
-One solution to this problem would have been to execute Stockfish's CLI on the back end server, and stream its output
-data directly to the front end over TCP or UDP\@.
+One solution to this problem could have been to execute Stockfish's CLI on the back end server, and stream its output
+data directly to the front end through TCP or UDP\@.
 Then, the data would have to be parsed and filtered on the front end, to extract the necessary data points.
 The advantage of this method is that the developers would be able to keep using TypeScript for the programming of the
 data processing as well as the other front end elements.
@@ -83,7 +83,7 @@ information to the front end, which in turn is financially unsustainable.
 Instead, the container server running Stockfish and the Python script parses the data locally and only returns the data
 to the front end that is needed for the application to function.
 
-The containerized environment to go with the script and Stockfish was created to ease the development and deployment
+The containerized environment to go with the script and Stockfish is created to ease the development and deployment
 processes.
 Containerized applications can easily be built and started for local development, and also easily be built and deployed
 to the cloud.
@@ -92,14 +92,14 @@ a free tier for simple container images.
 Reference is made to our Stockfish image in Appendix~\ref{ch:source-code-repositories} for the repository wherein the
 source code for the image is contained.
 
-To make sure the client is not waiting unnecessarily for the analysis of the position, while retaining some depth to the
-board state analysis, the developers set a hard-coded midpoint of depth 8 for the Stockfish binary.
+To make sure the client is not waiting unnecessarily for the analysis of the position, while also retaining some depth
+to the board state analysis, the developers set a hard-coded midpoint of depth 8 for the Stockfish software.
 
 \subsection{Stockfish API functions}\label{subsec:stockfish-api-functions}
 
 The two main functionalities of the script are the functions \texttt{evaluate\_position} and \texttt{analyze\_move}.
 
-The position is as before mentioned communicated through a FEN (Forsyth-Edwards Notation) string.
+The position is communicated through a FEN (Forsyth-Edwards Notation) string.
 The FEN string is produced by the frontend and is included in the request for the position evaluation.
 
 % textidote: ignore begin
